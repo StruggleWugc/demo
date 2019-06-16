@@ -1,0 +1,38 @@
+----------ChromeDriver v2.33 (2017-10-03)----------
+Supports Chrome v60-62
+Resolved issue 2032: ChromeDriver crashes while creating DNS resolver [['Pri-1']]
+Resolved issue 1918: Get/SetWindowSize & Get/SetWindowPosition commands are failing on Chromev62+ [['Pri-1']]
+Resolved issue 2013: Android 8.0.0 webviews not supported [['Pri-2']]
+Resolved issue 2017: In mobileEmulation "element is not clickable" if it is outside the visible area [['Pri-2']]
+Resolved issue 1981: chromedriver does not respect excludeSwitches flag [['Pri-2']]
+Partially Resolved issue 2002: Add Cookie is not spec compliant [[]]
+Resolved issue 1985: FindElement raises the wrong error [[]]
+
+
+###火狐##
+0.19.1 (2017-10-30)
+Changed
+Search suggestions in the location bar turned off as not to trigger network connections
+
+Block addons incompatible with E10s
+
+Fixed
+Marionette stacktraces are now correctly propagated
+
+Some error messages have been clarified
+
+Removed
+Removed obsolete socksUsername and socksPassword proxy configuration keys because neither were picked up or recognised
+0.19.0 (2017-09-16)
+Note that with geckodriver v0.19.0 the following versions are recommended:
+
+Firefox 55.0 (and greater)
+Selenium 3.5 (and greater)
+
+
+python 3.x
+selenium 3.6.0
+火狐驱动 V0.19.0/ V0.19.1
+谷歌驱动   V2.33
+火狐浏览器  56.0
+谷歌：62.0

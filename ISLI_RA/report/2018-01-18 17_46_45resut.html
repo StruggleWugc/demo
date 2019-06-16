@@ -1,0 +1,1085 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>ISLI_RA测试报告</title>
+    <meta name="generator" content="HTMLTestRunner 0.8.3"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    
+<style type="text/css" media="screen">
+body        { font-family: verdana, arial, helvetica, sans-serif; font-size: 80%; }
+table       { font-size: 100%; }
+pre         { white-space: pre-wrap;word-wrap: break-word; }
+
+/* -- heading ---------------------------------------------------------------------- */
+h1 {
+	font-size: 16pt;
+	color: gray;
+}
+.heading {
+    margin-top: 0ex;
+    margin-bottom: 1ex;
+}
+
+.heading .attribute {
+    margin-top: 1ex;
+    margin-bottom: 0;
+}
+
+.heading .description {
+    margin-top: 2ex;
+    margin-bottom: 3ex;
+}
+
+/* -- css div popup ------------------------------------------------------------------------ */
+a.popup_link {
+}
+
+a.popup_link:hover {
+    color: red;
+}
+
+.popup_window {
+    display: none;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    /*border: solid #627173 1px; */
+    padding: 10px;
+    background-color: #E6E6D6;
+    font-family: "Lucida Console", "Courier New", Courier, monospace;
+    text-align: left;
+    font-size: 8pt;
+    /* width: 500px;*/
+}
+
+}
+/* -- report ------------------------------------------------------------------------ */
+#show_detail_line {
+    margin-top: 3ex;
+    margin-bottom: 1ex;
+}
+#result_table {
+    width: 99%;
+}
+#header_row {
+    font-weight: bold;
+    color: white;
+    background-color: #777;
+}
+#total_row  { font-weight: bold; }
+.passClass  { background-color: #74A474; }
+.failClass  { background-color: #FDD283; }
+.errorClass { background-color: #FF6600; }
+.passCase   { color: #6c6; }
+.failCase   { color: #FF6600; font-weight: bold; }
+.errorCase  { color: #c00; font-weight: bold; }
+.hiddenRow  { display: none; }
+.testcase   { margin-left: 2em; }
+
+
+/* -- ending ---------------------------------------------------------------------- */
+#ending {
+}
+
+#div_base {
+            position:absolute;
+            top:0%;
+            left:5%;
+            right:5%;
+            width: auto;
+            height: auto;
+            margin: -15px 0 0 0;
+}
+</style>
+
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<script language="javascript" type="text/javascript"><!--
+output_list = Array();
+
+/* level - 0:Summary; 1:Failed; 2:All */
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level < 1) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level > 1) {
+                tr.className = '';
+            }
+            else {
+                tr.className = 'hiddenRow';
+            }
+        }
+    }
+}
+
+
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+        tid0 = 't' + cid.substr(1) + '.' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        if (toHide) {
+            document.getElementById('div_'+tid).style.display = 'none'
+            document.getElementById(tid).className = 'hiddenRow';
+        }
+        else {
+            document.getElementById(tid).className = '';
+        }
+    }
+}
+
+
+function showTestDetail(div_id){
+    var details_div = document.getElementById(div_id)
+    var displayState = details_div.style.display
+    // alert(displayState)
+    if (displayState != 'block' ) {
+        displayState = 'block'
+        details_div.style.display = 'block'
+    }
+    else {
+        details_div.style.display = 'none'
+    }
+}
+
+
+function html_escape(s) {
+    s = s.replace(/&/g,'&amp;');
+    s = s.replace(/</g,'&lt;');
+    s = s.replace(/>/g,'&gt;');
+    return s;
+}
+
+/* obsoleted by detail in <div>
+function showOutput(id, name) {
+    var w = window.open("", //url
+                    name,
+                    "resizable,scrollbars,status,width=800,height=450");
+    d = w.document;
+    d.write("<pre>");
+    d.write(html_escape(output_list[id]));
+    d.write("\n");
+    d.write("<a href='javascript:window.close()'>close</a>\n");
+    d.write("</pre>\n");
+    d.close();
+}
+*/
+--></script>
+<div id="div_base">
+
+<div class='page-header'>
+<h1>ISLI_RA测试报告</h1>
+<p class='attribute'><strong>开始时间:</strong> 2018-01-18 17:46:45</p>
+<p class='attribute'><strong>运行时长:</strong> 0:07:51.775984</p>
+<p class='attribute'><strong>状态:</strong> 通过 121 错误 4</p>
+
+</div>
+<p class='description'>用例执行情况</p>
+
+
+
+<div class="btn-group btn-group-sm">
+<button class="btn btn-default" onclick='javascript:showCase(0)'>总结</button>
+<button class="btn btn-default" onclick='javascript:showCase(1)'>失败</button>
+<button class="btn btn-default" onclick='javascript:showCase(2)'>全部</button>
+</div>
+<p></p>
+<table id='result_table' class="table table-bordered">
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+<tr id='header_row'>
+    <td>测试套件/测试用例</td>
+    <td>总数</td>
+    <td>通过</td>
+    <td>失败</td>
+    <td>错误</td>
+    <td>查看</td>
+</tr>
+
+<tr class='errorClass'>
+    <td>unittest.loader.ModuleImportFailure</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+    <td><a href="javascript:showClassDetail('c1',1)">详情</a></td>
+</tr>
+
+<tr id='ft1.1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_LCsign</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.1')" >
+        错误</a>
+
+    <div id='div_ft1.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.1: Traceback (most recent call last):
+  File "C:\Python34\lib\unittest\case.py", line 57, in testPartExecutor
+    yield
+  File "C:\Python34\lib\unittest\case.py", line 574, in run
+    testMethod()
+  File "C:\Python34\lib\unittest\loader.py", line 32, in testFailure
+    raise exception
+ImportError: Failed to import test module: test_LCsign
+Traceback (most recent call last):
+  File "C:\Python34\lib\unittest\loader.py", line 312, in _find_tests
+    module = self._get_module_from_name(name)
+  File "C:\Python34\lib\unittest\loader.py", line 290, in _get_module_from_name
+    __import__(name)
+  File "E:\RA\ISLI_RA\case\test_LCsign.py", line 1, in &lt;module&gt;
+    from ISLI_RA.page.LC_signinpage import Signpage
+ImportError: No module named 'ISLI_RA'
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='errorClass'>
+    <td>unittest.loader.ModuleImportFailure</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+    <td><a href="javascript:showClassDetail('c2',1)">详情</a></td>
+</tr>
+
+<tr id='ft2.1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_LCsign_flow</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.1')" >
+        错误</a>
+
+    <div id='div_ft2.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft2.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft2.1: Traceback (most recent call last):
+  File "C:\Python34\lib\unittest\case.py", line 57, in testPartExecutor
+    yield
+  File "C:\Python34\lib\unittest\case.py", line 574, in run
+    testMethod()
+  File "C:\Python34\lib\unittest\loader.py", line 32, in testFailure
+    raise exception
+ImportError: Failed to import test module: test_LCsign_flow
+Traceback (most recent call last):
+  File "C:\Python34\lib\unittest\loader.py", line 312, in _find_tests
+    module = self._get_module_from_name(name)
+  File "C:\Python34\lib\unittest\loader.py", line 290, in _get_module_from_name
+    __import__(name)
+  File "E:\RA\ISLI_RA\case\test_LCsign_flow.py", line 1, in &lt;module&gt;
+    from ISLI_RA.common.read_excel import Read
+ImportError: No module named 'ISLI_RA'
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='errorClass'>
+    <td>unittest.loader.ModuleImportFailure</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+    <td><a href="javascript:showClassDetail('c3',1)">详情</a></td>
+</tr>
+
+<tr id='ft3.1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_RAMS_login</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.1')" >
+        错误</a>
+
+    <div id='div_ft3.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.1: Traceback (most recent call last):
+  File "C:\Python34\lib\unittest\case.py", line 57, in testPartExecutor
+    yield
+  File "C:\Python34\lib\unittest\case.py", line 574, in run
+    testMethod()
+  File "C:\Python34\lib\unittest\loader.py", line 32, in testFailure
+    raise exception
+ImportError: Failed to import test module: test_RAMS_login
+Traceback (most recent call last):
+  File "C:\Python34\lib\unittest\loader.py", line 312, in _find_tests
+    module = self._get_module_from_name(name)
+  File "C:\Python34\lib\unittest\loader.py", line 290, in _get_module_from_name
+    __import__(name)
+  File "E:\RA\ISLI_RA\case\test_RAMS_login.py", line 1, in &lt;module&gt;
+    from ISLI_RA.page.RAMS_loginpage import Login_RA_MS
+ImportError: No module named 'ISLI_RA'
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='errorClass'>
+    <td>unittest.loader.ModuleImportFailure</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+    <td><a href="javascript:showClassDetail('c4',1)">详情</a></td>
+</tr>
+
+<tr id='ft4.1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_RAMS_system</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft4.1')" >
+        错误</a>
+
+    <div id='div_ft4.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft4.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft4.1: Traceback (most recent call last):
+  File "C:\Python34\lib\unittest\case.py", line 57, in testPartExecutor
+    yield
+  File "C:\Python34\lib\unittest\case.py", line 574, in run
+    testMethod()
+  File "C:\Python34\lib\unittest\loader.py", line 32, in testFailure
+    raise exception
+ImportError: Failed to import test module: test_RAMS_system
+Traceback (most recent call last):
+  File "C:\Python34\lib\unittest\loader.py", line 312, in _find_tests
+    module = self._get_module_from_name(name)
+  File "C:\Python34\lib\unittest\loader.py", line 290, in _get_module_from_name
+    __import__(name)
+  File "E:\RA\ISLI_RA\case\test_RAMS_system.py", line 1, in &lt;module&gt;
+    from ISLI_RA.page.RAMS_systempage import Rams_system
+ImportError: No module named 'ISLI_RA'
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test_createType.Rams_datasys</td>
+    <td>52</td>
+    <td>52</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c5',52)">详情</a></td>
+</tr>
+
+<tr id='pt5.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_001: 进入新增实体</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_002: 实体中文描述为空进行提交</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_003: 英文名为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_004: 英文描述为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_005: 中文名为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_006: 新增时候取消</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.7' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_007: 正常提交实体类型</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.8' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_008: 连续多次提交实体类型申请</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.9' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_009: 新增实体中文名重复</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.10' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_010: 新增实体英文名重复</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.11' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_011: 查看</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.12' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_012: 修改的中文实体名为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.13' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_013: 修改中文描述为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.14' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_014: 修改英文名为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.15' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_015: 修改英文描述为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.16' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_016: 修改已存在的中文名失败</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.17' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_017: 修改已存在的英文名失败</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.18' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_018: 正常修改成功</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.19' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_019: 列表入口修改成功</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.20' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_020: 实体类型搜索搜索		测试数据1515741699</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.21' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_021: 停用加搜索</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.22' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_022: 启用 加搜索</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.23' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_023: 进入新增关联类型页面</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.24' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_024: 操作中文源类型为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.25' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_025: 操作中文关联类型为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.26' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_026: 操作中文目标类型为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.27' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_027: 中文描述为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.28' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_028: 英文关联名为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.29' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_029: 操作英文源为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.30' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_030: 操作英文目标类型为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.31' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_031: 英文描述为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.32' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_032: 新增时取消并重新进入</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.33' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_033: 正常提交注册</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.34' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_034: 连续提交多次申请</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.35' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_035: 新增关联类型名称中文名重复</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.36' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_036: 新增关联类型名称英文名重复</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.37' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_037: 查看关联类型</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.38' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_038: 修改-关联名中文为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.39' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_039: 修改-中文关联名重复</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.40' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_040: 修改-中文描述为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.41' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_041: 修改-英文名为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.42' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_042: 修改-英文名重复</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.43' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_043: 修改-英文描述为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.44' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_044: 正常修改成功</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.45' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_045: 列表修改成功</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.46' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_046: 停用+状态停用搜索</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.47' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_047: 关联类型搜索</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.48' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_048: 源类型搜索</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.49' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_049: 目标类型搜索</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.50' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_050: 正常启用</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.51' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_051: 停用新增关联</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.52' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_052: 停用新增实体</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr class='passClass'>
+    <td>test_searchcode.Search_test</td>
+    <td>6</td>
+    <td>6</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c6',6)">详情</a></td>
+</tr>
+
+<tr id='pt6.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_01: 首页输入框输入存在的关键词进行搜索</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt6.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_02: 首页输入存在的中文关键词</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt6.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_03: 输入不存在的编码</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt6.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_04: 搜索结果界面进行搜索</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt6.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_05: 查看详情至返回</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt6.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_06: 输入完整code进行解析</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr class='passClass'>
+    <td>test_spRegister.web_SPRegisterTest: SP账户注册</td>
+    <td>34</td>
+    <td>34</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c7',34)">详情</a></td>
+</tr>
+
+<tr id='pt7.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_001: 机构必填项为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_002: 必填项-机构名称已经存在-注册失败</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_003: 必填项-机构名称长度101-自动截取100长度</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_004: 必填项-统一社会信用代码为19位-自动截取</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_005: 必填项-统一社会信用代码为14位-注册失败</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_006: 必填项-统一社会信用代码含汉字特殊字符-注册失败</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.7' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_007: 官方网址输入错误格式-注册失败</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.8' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_008: 个人用户必填项为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.9' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_009: 个人用户身份证非数字</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.10' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_010: 个人身份证非18位</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.11' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_011: 个人身份证输入非身份证</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.12' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_012: 个人身份证上传格式错误</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.13' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_013: 分支机构必填项为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.14' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_014: 分支机构邮编长度或类型错误</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.15' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_015: 分支机构-网址错误</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.16' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_016: 分支机构联系邮箱格式错误</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.17' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_017: 添加多个分支机构功能正常</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.18' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_018: 必填项-联系人长度26字符-自动截取</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.19' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_019: 必填项-联系人电话-手机号长度12位-自动截取</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.20' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_020: 必填项-联系人电话-手机号含非数字-注册失败</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.21' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_021: 职位长度26位-自动截取</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.22' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_022: 必填项-电子邮箱格式错误-注册失败</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.23' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_023: 邮编输入非数字--注册失败</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.24' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_024: 邮编输入5位数字--注册失败</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.25' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_025: 邮编输入7位数字-自动截取</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.26' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_026: 必填项-用户名格式错误-注册失败</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.27' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_027: 必填项-邮箱验证码格式错误-注册失败</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.28' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_028: 用户名已注册</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.29' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_029: 用户名已提交申请，待审核</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.30' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_030: 必填项-机构LOGO格式错误-注册失败</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.31' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_031: 必填项-机构扫描件格式错误-注册失败</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.32' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_032: 机构用户正常填写注册信息</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.33' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_033: 个人用户正常注册</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.34' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_034: 机构用户添加分支机构</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr class='passClass'>
+    <td>test_webManager.newsManagerTest: 网站管理</td>
+    <td>29</td>
+    <td>29</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c8',29)">详情</a></td>
+</tr>
+
+<tr id='pt8.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_01: 发布新闻-必填项为空-发布失败</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_02: 发布新闻-标题输入超过100字符-自动截取100</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_04: 发布新闻-来源输入超过100字符-自动截取100</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_05: 发布新闻-排序输入格式错误-报错提示</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_06: 发布新闻-摘要输入超过200字符-自动截取200</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_07: 发布新闻-内容超过30000字符-自动截取30000</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.7' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_08: 流程-发布新闻并检查其正确性</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.8' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_09: 新增栏目-输入已经存在的导航名称-报错提示</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.9' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_10: 新增栏目-必填项为空-报错提示-新增失败</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.10' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_11: 新增栏目-导航名称输入41字符-自动截取40</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.11' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_12: 新增栏目-导航名称输入最短字符-1</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.12' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_13: 新增栏目-导航描述输入101字符-自动截取100</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.13' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_14: 新增栏目-各项输入最长字符-成功新增</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.14' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_15: 新增栏目-各项输入最短字符-成功新增</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.15' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_16: 修改栏目-导航名称已存在</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.16' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_17: 修改栏目-必填项为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.17' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_18: 修改栏目-导航名称输入41字符-自动截取40</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.18' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_19: 修改栏目-导航名称输入最短字符-1</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.19' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_20: 修改栏目-导航描述输入101字符-自动截取100</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.20' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_21: 客户反馈-处理反馈时不填处理结果-报错提示</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.21' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_22: 客户反馈-处理反馈输入内容后点击关闭</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.22' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_23: 客户反馈-处理反馈输入201字符-自动截取200-成功提交</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.23' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_25: 客户反馈-主题输入框文字提示</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.24' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_26: 客户反馈-根据搜索条件检查结果列表</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.25' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_27: 输入页码为范围内的页码-成功跳转</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.26' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_28: 输入页码小于1-跳转到第一页</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.27' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_29: 输入页码大于最大页码-跳转到最大页码</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.28' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_30: 输入页码为字母-跳转到第一页</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.29' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_31: 输入页码为特殊字符-跳转到第一页</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='total_row'>
+    <td>总计</td>
+    <td>125</td>
+    <td>121</td>
+    <td>0</td>
+    <td>4</td>
+    <td>&nbsp;</td>
+</tr>
+</table>
+
+<div id='ending'>&nbsp;</div>
+
+</div>
+</body>
+</html>

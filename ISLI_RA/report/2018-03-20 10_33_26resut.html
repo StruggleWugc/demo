@@ -1,0 +1,4004 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>ISLI_RA测试报告</title>
+    <meta name="generator" content="HTMLTestRunner 0.8.3"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    
+<style type="text/css" media="screen">
+body        { font-family: verdana, arial, helvetica, sans-serif; font-size: 80%; }
+table       { font-size: 100%; }
+pre         { white-space: pre-wrap;word-wrap: break-word; }
+
+/* -- heading ---------------------------------------------------------------------- */
+h1 {
+	font-size: 16pt;
+	color: gray;
+}
+.heading {
+    margin-top: 0ex;
+    margin-bottom: 1ex;
+}
+
+.heading .attribute {
+    margin-top: 1ex;
+    margin-bottom: 0;
+}
+
+.heading .description {
+    margin-top: 2ex;
+    margin-bottom: 3ex;
+}
+
+/* -- css div popup ------------------------------------------------------------------------ */
+a.popup_link {
+}
+
+a.popup_link:hover {
+    color: red;
+}
+
+.popup_window {
+    display: none;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    /*border: solid #627173 1px; */
+    padding: 10px;
+    background-color: #E6E6D6;
+    font-family: "Lucida Console", "Courier New", Courier, monospace;
+    text-align: left;
+    font-size: 8pt;
+    /* width: 500px;*/
+}
+
+}
+/* -- report ------------------------------------------------------------------------ */
+#show_detail_line {
+    margin-top: 3ex;
+    margin-bottom: 1ex;
+}
+#result_table {
+    width: 99%;
+}
+#header_row {
+    font-weight: bold;
+    color: white;
+    background-color: #777;
+}
+#total_row  { font-weight: bold; }
+.passClass  { background-color: #74A474; }
+.failClass  { background-color: #FDD283; }
+.errorClass { background-color: #FF6600; }
+.passCase   { color: #6c6; }
+.failCase   { color: #FF6600; font-weight: bold; }
+.errorCase  { color: #c00; font-weight: bold; }
+.hiddenRow  { display: none; }
+.testcase   { margin-left: 2em; }
+
+
+/* -- ending ---------------------------------------------------------------------- */
+#ending {
+}
+
+#div_base {
+            position:absolute;
+            top:0%;
+            left:5%;
+            right:5%;
+            width: auto;
+            height: auto;
+            margin: -15px 0 0 0;
+}
+</style>
+
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<script language="javascript" type="text/javascript"><!--
+output_list = Array();
+
+/* level - 0:Summary; 1:Failed; 2:All */
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level < 1) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level > 1) {
+                tr.className = '';
+            }
+            else {
+                tr.className = 'hiddenRow';
+            }
+        }
+    }
+}
+
+
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+        tid0 = 't' + cid.substr(1) + '.' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        if (toHide) {
+            document.getElementById('div_'+tid).style.display = 'none'
+            document.getElementById(tid).className = 'hiddenRow';
+        }
+        else {
+            document.getElementById(tid).className = '';
+        }
+    }
+}
+
+
+function showTestDetail(div_id){
+    var details_div = document.getElementById(div_id)
+    var displayState = details_div.style.display
+    // alert(displayState)
+    if (displayState != 'block' ) {
+        displayState = 'block'
+        details_div.style.display = 'block'
+    }
+    else {
+        details_div.style.display = 'none'
+    }
+}
+
+
+function html_escape(s) {
+    s = s.replace(/&/g,'&amp;');
+    s = s.replace(/</g,'&lt;');
+    s = s.replace(/>/g,'&gt;');
+    return s;
+}
+
+/* obsoleted by detail in <div>
+function showOutput(id, name) {
+    var w = window.open("", //url
+                    name,
+                    "resizable,scrollbars,status,width=800,height=450");
+    d = w.document;
+    d.write("<pre>");
+    d.write(html_escape(output_list[id]));
+    d.write("\n");
+    d.write("<a href='javascript:window.close()'>close</a>\n");
+    d.write("</pre>\n");
+    d.close();
+}
+*/
+--></script>
+<div id="div_base">
+
+<div class='page-header'>
+<h1>ISLI_RA测试报告</h1>
+<p class='attribute'><strong>开始时间:</strong> 2018-03-20 10:33:26</p>
+<p class='attribute'><strong>运行时长:</strong> 0:25:42.947252</p>
+<p class='attribute'><strong>状态:</strong> 通过 274 失败 27 错误 38</p>
+
+</div>
+<p class='description'>用例执行情况</p>
+
+
+
+<div class="btn-group btn-group-sm">
+<button class="btn btn-default" onclick='javascript:showCase(0)'>总结</button>
+<button class="btn btn-default" onclick='javascript:showCase(1)'>失败</button>
+<button class="btn btn-default" onclick='javascript:showCase(2)'>全部</button>
+</div>
+<p></p>
+<table id='result_table' class="table table-bordered">
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+<tr id='header_row'>
+    <td>测试套件/测试用例</td>
+    <td>总数</td>
+    <td>通过</td>
+    <td>失败</td>
+    <td>错误</td>
+    <td>查看</td>
+</tr>
+
+<tr class='errorClass'>
+    <td>test_LCsign_flow.Sign_flow: LC注册</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+    <td><a href="javascript:showClassDetail('c1',1)">详情</a></td>
+</tr>
+
+<tr id='ft1.1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_001: 选择注册类型页面至注册协议页面之间跳转</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.1')" >
+        错误</a>
+
+    <div id='div_ft1.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.1: Traceback (most recent call last):
+  File "D:\ISLI_RA\case\test_LCsign_flow.py", line 26, in test_001
+    self.assertEqual("欢迎注册，请选择：",self.driver.get_text(('css selector','.login-content&gt;h3')))
+  File "D:\ISLI_RA\common\base.py", line 221, in get_text
+    element = self.find_element(locator)
+  File "D:\ISLI_RA\common\base.py", line 66, in find_element
+    element = WebDriverWait(self.driver, timeout, 1).until(EC.presence_of_element_located(locator))
+  File "C:\Python34\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test_RAMS_login.Rams_Login: RA后台登陆</td>
+    <td>6</td>
+    <td>6</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c2',6)">详情</a></td>
+</tr>
+
+<tr id='pt2.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_01: 用户名为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt2.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_02: 用户名不存在</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt2.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_03: 密码为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt2.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_04: 密码错误</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt2.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_05: 验证码为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt2.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_06: 登入成功</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr class='errorClass'>
+    <td>test_RAMS_system.Rams_sysmanage: RA后台-系统管理-角色/系统账户</td>
+    <td>84</td>
+    <td>50</td>
+    <td>21</td>
+    <td>13</td>
+    <td><a href="javascript:showClassDetail('c3',84)">详情</a></td>
+</tr>
+
+<tr id='pt3.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_001: 进入角色管理</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt3.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_002: 创建角色所属区域为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt3.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_003: 创建角色名称中文为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt3.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_004: 英文区域为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt3.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_005: 角色名称英文名为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt3.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_006: 正常创建成功</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt3.7' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_007: 角色名称中文已存在</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt3.8' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_008: 英文角色名已存在</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt3.9' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_009: 测试修改区域为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt3.10' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_010: 修改-角色名称中文已存在</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt3.11' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_011: 修改角色名称中文名为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt3.12' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_012: 修改角色区域英文为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='ft3.13' class='none'>
+    <td class='failCase'><div class='testcase'>test_013: 修改-英文角色名已存在</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.13')" >
+        失败</a>
+
+    <div id='div_ft3.13' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.13').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.13: Traceback (most recent call last):
+  File "D:\ISLI_RA\case\test_RAMS_system.py", line 148, in test_013
+    self.assertTrue(self.driver.get_about(self.driver.error_rolenameEnone_loc))
+AssertionError: '' is not true
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt3.14' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_014: 修改英文角色名为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt3.15' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_015: 正常修改成功</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='ft3.16' class='none'>
+    <td class='failCase'><div class='testcase'>test_016: 删除新建角色</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.16')" >
+        失败</a>
+
+    <div id='div_ft3.16' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.16').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.16: Traceback (most recent call last):
+  File "D:\ISLI_RA\case\test_RAMS_system.py", line 179, in test_016
+    self.assertEqual(self.rolename,self.driver.get_about(self.driver.table_rolename_loc))
+AssertionError: '角色名称1521513261' != '测试数据'
+- 角色名称1521513261
++ 测试数据
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.17' class='none'>
+    <td class='errorCase'><div class='testcase'>test_017: 停用角色</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.17')" >
+        错误</a>
+
+    <div id='div_ft3.17' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.17').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.17: Traceback (most recent call last):
+  File "D:\ISLI_RA\case\test_RAMS_system.py", line 189, in test_017
+    self.assertTrue(self.driver.find_element(self.driver.table_rolestart_loc))
+  File "D:\ISLI_RA\common\base.py", line 66, in find_element
+    element = WebDriverWait(self.driver, timeout, 1).until(EC.presence_of_element_located(locator))
+  File "C:\Python34\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt3.18' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_018: 启用角色后删除</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt3.19' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_019: 进入系统账户创建帐户</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt3.20' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_020: 用户名为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt3.21' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_021: 用户名小于3位</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt3.22' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_022: 用户名非数字/字母/下划线</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt3.23' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_023: 用户名已存在</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt3.24' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_024: 工号为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt3.25' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_025: 工号小于6位</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt3.26' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_026: 工号非数字/字母</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt3.27' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_027: 工号已存在</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt3.28' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_028: 姓名为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt3.29' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_029: 姓名为符号</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt3.30' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_030: 固话区号为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt3.31' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_031: 区号非数字</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt3.32' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_032: 固话号码为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt3.33' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_033: 固定号码非数字</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt3.34' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_034: 固定号码小于6位</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt3.35' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_035: 分机号非数字</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt3.36' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_036: 手机号为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt3.37' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_037: 手机号码小于6位</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt3.38' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_038: 手机号码非数字</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt3.39' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_039: 邮箱为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt3.40' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_040: 邮箱非数字字母符号</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt3.41' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_041: 非邮箱格式</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt3.42' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_042: 邮箱已使用</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt3.43' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_043: 密码为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt3.44' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_044: 密码小于6位</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt3.45' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_045: 密码为纯数字</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt3.46' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_046: 密码为纯字母</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt3.47' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_047: 确认密码为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt3.48' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_048: 确认密码小于6位</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt3.49' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_049: 确认密码为纯数字</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt3.50' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_050: 确认密码为纯字母</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt3.51' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_051: 确认密码与密码不一致</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt3.52' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_052: 固话国际区号\手机区号切换正常</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='ft3.53' class='none'>
+    <td class='errorCase'><div class='testcase'>test_053: 正常注册</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.53')" >
+        错误</a>
+
+    <div id='div_ft3.53' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.53').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.53: Traceback (most recent call last):
+  File "D:\ISLI_RA\case\test_RAMS_system.py", line 486, in test_053
+    self.assertIn(self.data1.read_cell(5,1),self.driver.get_about(self.driver.table_accountsusname_loc))
+  File "D:\ISLI_RA\page\RAMS_systempage.py", line 104, in get_about
+    return self.get_text(element_loc)
+  File "D:\ISLI_RA\common\base.py", line 221, in get_text
+    element = self.find_element(locator)
+  File "D:\ISLI_RA\common\base.py", line 66, in find_element
+    element = WebDriverWait(self.driver, timeout, 1).until(EC.presence_of_element_located(locator))
+  File "C:\Python34\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.54' class='none'>
+    <td class='errorCase'><div class='testcase'>test_054: 分配角色</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.54')" >
+        错误</a>
+
+    <div id='div_ft3.54' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.54').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.54: Traceback (most recent call last):
+  File "D:\ISLI_RA\case\test_RAMS_system.py", line 494, in test_054
+    self.driver.clickaction(self.driver.table_accountsallot_loc)
+  File "D:\ISLI_RA\page\RAMS_systempage.py", line 96, in clickaction
+    self.click(element_loc)
+  File "D:\ISLI_RA\common\base.py", line 77, in click
+    element = self.find_element(locator)
+  File "D:\ISLI_RA\common\base.py", line 66, in find_element
+    element = WebDriverWait(self.driver, timeout, 1).until(EC.presence_of_element_located(locator))
+  File "C:\Python34\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.55' class='none'>
+    <td class='errorCase'><div class='testcase'>test_055: 验证注册账号工号能登入</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.55')" >
+        错误</a>
+
+    <div id='div_ft3.55' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.55').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.55: Traceback (most recent call last):
+  File "D:\ISLI_RA\case\test_RAMS_system.py", line 507, in test_055
+    self.driver.loginaction(self.data1.read_cell(36,2),self.data1.read_cell(36,11))
+  File "D:\ISLI_RA\page\RAMS_loginpage.py", line 52, in loginaction
+    self.input_code(code)
+  File "D:\ISLI_RA\page\RAMS_loginpage.py", line 30, in input_code
+    self.send_keys(self.valicode_loc,code)
+  File "D:\ISLI_RA\common\base.py", line 87, in send_keys
+    element = self.find_element(locator)
+  File "D:\ISLI_RA\common\base.py", line 66, in find_element
+    element = WebDriverWait(self.driver, timeout, 1).until(EC.presence_of_element_located(locator))
+  File "C:\Python34\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.56' class='none'>
+    <td class='errorCase'><div class='testcase'>test_056: 验证账号用户名能登入</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.56')" >
+        错误</a>
+
+    <div id='div_ft3.56' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.56').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.56: Traceback (most recent call last):
+  File "D:\ISLI_RA\case\test_RAMS_system.py", line 515, in test_056
+    self.driver.loginaction(self.data1.read_cell(5,1),self.data1.read_cell(36,11))
+  File "D:\ISLI_RA\page\RAMS_loginpage.py", line 52, in loginaction
+    self.input_code(code)
+  File "D:\ISLI_RA\page\RAMS_loginpage.py", line 30, in input_code
+    self.send_keys(self.valicode_loc,code)
+  File "D:\ISLI_RA\common\base.py", line 87, in send_keys
+    element = self.find_element(locator)
+  File "D:\ISLI_RA\common\base.py", line 66, in find_element
+    element = WebDriverWait(self.driver, timeout, 1).until(EC.presence_of_element_located(locator))
+  File "C:\Python34\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.57' class='none'>
+    <td class='errorCase'><div class='testcase'>test_057: 测试禁用账号</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.57')" >
+        错误</a>
+
+    <div id='div_ft3.57' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.57').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.57: Traceback (most recent call last):
+  File "D:\ISLI_RA\case\test_RAMS_system.py", line 523, in test_057
+    self.driver.loginaction('isli','aaaaaa')
+  File "D:\ISLI_RA\page\RAMS_loginpage.py", line 52, in loginaction
+    self.input_code(code)
+  File "D:\ISLI_RA\page\RAMS_loginpage.py", line 30, in input_code
+    self.send_keys(self.valicode_loc,code)
+  File "D:\ISLI_RA\common\base.py", line 87, in send_keys
+    element = self.find_element(locator)
+  File "D:\ISLI_RA\common\base.py", line 66, in find_element
+    element = WebDriverWait(self.driver, timeout, 1).until(EC.presence_of_element_located(locator))
+  File "C:\Python34\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.58' class='none'>
+    <td class='errorCase'><div class='testcase'>test_059: 测试启用账号</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.58')" >
+        错误</a>
+
+    <div id='div_ft3.58' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.58').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.58: Traceback (most recent call last):
+  File "D:\ISLI_RA\case\test_RAMS_system.py", line 547, in test_059
+    self.driver.clickaction(self.driver.table_accountsstart_loc)
+  File "D:\ISLI_RA\page\RAMS_systempage.py", line 96, in clickaction
+    self.click(element_loc)
+  File "D:\ISLI_RA\common\base.py", line 77, in click
+    element = self.find_element(locator)
+  File "D:\ISLI_RA\common\base.py", line 66, in find_element
+    element = WebDriverWait(self.driver, timeout, 1).until(EC.presence_of_element_located(locator))
+  File "C:\Python34\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.59' class='none'>
+    <td class='errorCase'><div class='testcase'>test_060: 进入修改</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.59')" >
+        错误</a>
+
+    <div id='div_ft3.59' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.59').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.59: Traceback (most recent call last):
+  File "D:\ISLI_RA\case\test_RAMS_system.py", line 558, in test_060
+    self.driver.clickaction(self.driver.table_accountsedit_loc)
+  File "D:\ISLI_RA\page\RAMS_systempage.py", line 96, in clickaction
+    self.click(element_loc)
+  File "D:\ISLI_RA\common\base.py", line 77, in click
+    element = self.find_element(locator)
+  File "D:\ISLI_RA\common\base.py", line 66, in find_element
+    element = WebDriverWait(self.driver, timeout, 1).until(EC.presence_of_element_located(locator))
+  File "C:\Python34\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.60' class='none'>
+    <td class='failCase'><div class='testcase'>test_061: 修改时工号为空</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.60')" >
+        失败</a>
+
+    <div id='div_ft3.60' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.60').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.60: Traceback (most recent call last):
+  File "D:\ISLI_RA\case\test_RAMS_system.py", line 568, in test_061
+    self.assertEqual('修改',self.driver.get_about(self.driver.accounts_title_loc))
+AssertionError: '修改' != '创建帐户'
+- 修改
++ 创建帐户
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.61' class='none'>
+    <td class='failCase'><div class='testcase'>test_062: 修改时工号小于6位</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.61')" >
+        失败</a>
+
+    <div id='div_ft3.61' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.61').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.61: Traceback (most recent call last):
+  File "D:\ISLI_RA\case\test_RAMS_system.py", line 575, in test_062
+    self.assertEqual('修改',self.driver.get_about(self.driver.accounts_title_loc))
+AssertionError: '修改' != '创建帐户'
+- 修改
++ 创建帐户
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.62' class='none'>
+    <td class='failCase'><div class='testcase'>test_063: 修改时工号非数字/字母</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.62')" >
+        失败</a>
+
+    <div id='div_ft3.62' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.62').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.62: Traceback (most recent call last):
+  File "D:\ISLI_RA\case\test_RAMS_system.py", line 582, in test_063
+    self.assertEqual('修改',self.driver.get_about(self.driver.accounts_title_loc))
+AssertionError: '修改' != '创建帐户'
+- 修改
++ 创建帐户
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.63' class='none'>
+    <td class='failCase'><div class='testcase'>test_064: 修改时工号已存在</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.63')" >
+        失败</a>
+
+    <div id='div_ft3.63' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.63').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.63: Traceback (most recent call last):
+  File "D:\ISLI_RA\case\test_RAMS_system.py", line 588, in test_064
+    self.assertIn('号已经被使用',self.driver.get_about(self.driver.error_accountsjbno_loc))
+AssertionError: '号已经被使用' not found in '工号由6位字母或数字组成'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt3.64' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_065: 修改时姓名为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='ft3.65' class='none'>
+    <td class='failCase'><div class='testcase'>test_066: 修改时姓名为符号</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.65')" >
+        失败</a>
+
+    <div id='div_ft3.65' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.65').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.65: Traceback (most recent call last):
+  File "D:\ISLI_RA\case\test_RAMS_system.py", line 603, in test_066
+    self.assertEqual('修改',self.driver.get_about(self.driver.accounts_title_loc))
+AssertionError: '修改' != '创建帐户'
+- 修改
++ 创建帐户
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.66' class='none'>
+    <td class='failCase'><div class='testcase'>test_067: 修改时固话区号为空</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.66')" >
+        失败</a>
+
+    <div id='div_ft3.66' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.66').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.66: Traceback (most recent call last):
+  File "D:\ISLI_RA\case\test_RAMS_system.py", line 614, in test_067
+    self.assertEqual('修改',self.driver.get_about(self.driver.accounts_title_loc))
+AssertionError: '修改' != '创建帐户'
+- 修改
++ 创建帐户
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.67' class='none'>
+    <td class='failCase'><div class='testcase'>test_068: 修改时区号非数字</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.67')" >
+        失败</a>
+
+    <div id='div_ft3.67' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.67').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.67: Traceback (most recent call last):
+  File "D:\ISLI_RA\case\test_RAMS_system.py", line 622, in test_068
+    self.assertEqual('修改',self.driver.get_about(self.driver.accounts_title_loc))
+AssertionError: '修改' != '创建帐户'
+- 修改
++ 创建帐户
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.68' class='none'>
+    <td class='failCase'><div class='testcase'>test_069: 修改时固话号码为空</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.68')" >
+        失败</a>
+
+    <div id='div_ft3.68' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.68').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.68: Traceback (most recent call last):
+  File "D:\ISLI_RA\case\test_RAMS_system.py", line 632, in test_069
+    self.assertEqual('修改',self.driver.get_about(self.driver.accounts_title_loc))
+AssertionError: '修改' != '创建帐户'
+- 修改
++ 创建帐户
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.69' class='none'>
+    <td class='failCase'><div class='testcase'>test_070: 修改时固定号码非数字</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.69')" >
+        失败</a>
+
+    <div id='div_ft3.69' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.69').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.69: Traceback (most recent call last):
+  File "D:\ISLI_RA\case\test_RAMS_system.py", line 640, in test_070
+    self.assertEqual('修改',self.driver.get_about(self.driver.accounts_title_loc))
+AssertionError: '修改' != '创建帐户'
+- 修改
++ 创建帐户
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.70' class='none'>
+    <td class='failCase'><div class='testcase'>test_071: 修改时固定号码小于6位</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.70')" >
+        失败</a>
+
+    <div id='div_ft3.70' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.70').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.70: Traceback (most recent call last):
+  File "D:\ISLI_RA\case\test_RAMS_system.py", line 648, in test_071
+    self.assertEqual('修改',self.driver.get_about(self.driver.accounts_title_loc))
+AssertionError: '修改' != '创建帐户'
+- 修改
++ 创建帐户
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.71' class='none'>
+    <td class='failCase'><div class='testcase'>test_072: 修改时分机号非数字</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.71')" >
+        失败</a>
+
+    <div id='div_ft3.71' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.71').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.71: Traceback (most recent call last):
+  File "D:\ISLI_RA\case\test_RAMS_system.py", line 656, in test_072
+    self.assertEqual('修改',self.driver.get_about(self.driver.accounts_title_loc))
+AssertionError: '修改' != '创建帐户'
+- 修改
++ 创建帐户
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.72' class='none'>
+    <td class='failCase'><div class='testcase'>test_073: 修改时手机号为空</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.72')" >
+        失败</a>
+
+    <div id='div_ft3.72' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.72').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.72: Traceback (most recent call last):
+  File "D:\ISLI_RA\case\test_RAMS_system.py", line 664, in test_073
+    self.assertEqual('修改',self.driver.get_about(self.driver.accounts_title_loc))
+AssertionError: '修改' != '创建帐户'
+- 修改
++ 创建帐户
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.73' class='none'>
+    <td class='failCase'><div class='testcase'>test_074: 修改时手机号码不为11位</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.73')" >
+        失败</a>
+
+    <div id='div_ft3.73' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.73').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.73: Traceback (most recent call last):
+  File "D:\ISLI_RA\case\test_RAMS_system.py", line 671, in test_074
+    self.assertEqual('修改',self.driver.get_about(self.driver.accounts_title_loc))
+AssertionError: '修改' != '创建帐户'
+- 修改
++ 创建帐户
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.74' class='none'>
+    <td class='failCase'><div class='testcase'>test_075: 修改时手机号码非数字</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.74')" >
+        失败</a>
+
+    <div id='div_ft3.74' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.74').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.74: Traceback (most recent call last):
+  File "D:\ISLI_RA\case\test_RAMS_system.py", line 678, in test_075
+    self.assertEqual('修改',self.driver.get_about(self.driver.accounts_title_loc))
+AssertionError: '修改' != '创建帐户'
+- 修改
++ 创建帐户
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.75' class='none'>
+    <td class='failCase'><div class='testcase'>test_076: 修改时邮箱为空</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.75')" >
+        失败</a>
+
+    <div id='div_ft3.75' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.75').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.75: Traceback (most recent call last):
+  File "D:\ISLI_RA\case\test_RAMS_system.py", line 686, in test_076
+    self.assertEqual('修改',self.driver.get_about(self.driver.accounts_title_loc))
+AssertionError: '修改' != '创建帐户'
+- 修改
++ 创建帐户
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.76' class='none'>
+    <td class='failCase'><div class='testcase'>test_077: 修改时邮箱非数字字母符号</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.76')" >
+        失败</a>
+
+    <div id='div_ft3.76' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.76').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.76: Traceback (most recent call last):
+  File "D:\ISLI_RA\case\test_RAMS_system.py", line 692, in test_077
+    self.assertIn('请输入正确的邮箱',self.driver.get_about(self.driver.error_accountsemail_loc))
+AssertionError: '请输入正确的邮箱' not found in '电子邮箱格式不正确'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.77' class='none'>
+    <td class='failCase'><div class='testcase'>test_078: 修改时非邮箱格式</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.77')" >
+        失败</a>
+
+    <div id='div_ft3.77' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.77').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.77: Traceback (most recent call last):
+  File "D:\ISLI_RA\case\test_RAMS_system.py", line 699, in test_078
+    self.assertIn('请输入正确的邮箱',self.driver.get_about(self.driver.error_accountsemail_loc))
+AssertionError: '请输入正确的邮箱' not found in '电子邮箱格式不正确'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.78' class='none'>
+    <td class='failCase'><div class='testcase'>test_079: 修改时邮箱已使用</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.78')" >
+        失败</a>
+
+    <div id='div_ft3.78' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.78').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.78: Traceback (most recent call last):
+  File "D:\ISLI_RA\case\test_RAMS_system.py", line 706, in test_079
+    self.assertIn('邮箱已经被使用',self.driver.get_about(self.driver.error_accountsemail_loc))
+AssertionError: '邮箱已经被使用' not found in '电子邮箱格式不正确'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.79' class='none'>
+    <td class='failCase'><div class='testcase'>test_080: 修改时固话/手机区号切换正常</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.79')" >
+        失败</a>
+
+    <div id='div_ft3.79' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.79').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.79: Traceback (most recent call last):
+  File "D:\ISLI_RA\case\test_RAMS_system.py", line 714, in test_080
+    self.assertIn('邮箱已经被使用',self.driver.get_about(self.driver.error_accountsemail_loc))
+AssertionError: '邮箱已经被使用' not found in '电子邮箱格式不正确'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.80' class='none'>
+    <td class='errorCase'><div class='testcase'>test_081: 正常修改成功</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.80')" >
+        错误</a>
+
+    <div id='div_ft3.80' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.80').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.80: Traceback (most recent call last):
+  File "D:\ISLI_RA\case\test_RAMS_system.py", line 724, in test_081
+    self.assertIn(self.data1.read_cell(5,1),self.driver.get_about(self.driver.table_accountsusname_loc))
+  File "D:\ISLI_RA\page\RAMS_systempage.py", line 104, in get_about
+    return self.get_text(element_loc)
+  File "D:\ISLI_RA\common\base.py", line 221, in get_text
+    element = self.find_element(locator)
+  File "D:\ISLI_RA\common\base.py", line 66, in find_element
+    element = WebDriverWait(self.driver, timeout, 1).until(EC.presence_of_element_located(locator))
+  File "C:\Python34\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.81' class='none'>
+    <td class='errorCase'><div class='testcase'>test_082: 账号修改前的jobno不能能登入</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.81')" >
+        错误</a>
+
+    <div id='div_ft3.81' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.81').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.81: Traceback (most recent call last):
+  File "D:\ISLI_RA\case\test_RAMS_system.py", line 734, in test_082
+    self.driver.loginaction(self.data1.read_cell(59,2),self.data1.read_cell(59,11))
+  File "D:\ISLI_RA\page\RAMS_loginpage.py", line 52, in loginaction
+    self.input_code(code)
+  File "D:\ISLI_RA\page\RAMS_loginpage.py", line 30, in input_code
+    self.send_keys(self.valicode_loc,code)
+  File "D:\ISLI_RA\common\base.py", line 87, in send_keys
+    element = self.find_element(locator)
+  File "D:\ISLI_RA\common\base.py", line 66, in find_element
+    element = WebDriverWait(self.driver, timeout, 1).until(EC.presence_of_element_located(locator))
+  File "C:\Python34\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.82' class='none'>
+    <td class='errorCase'><div class='testcase'>test_083: 账号修改后的jobno能登入</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.82')" >
+        错误</a>
+
+    <div id='div_ft3.82' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.82').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.82: Traceback (most recent call last):
+  File "D:\ISLI_RA\case\test_RAMS_system.py", line 739, in test_083
+    self.driver.loginaction(self.data1.read_cell(60,2),self.data1.read_cell(60,11))
+  File "D:\ISLI_RA\page\RAMS_loginpage.py", line 52, in loginaction
+    self.input_code(code)
+  File "D:\ISLI_RA\page\RAMS_loginpage.py", line 30, in input_code
+    self.send_keys(self.valicode_loc,code)
+  File "D:\ISLI_RA\common\base.py", line 87, in send_keys
+    element = self.find_element(locator)
+  File "D:\ISLI_RA\common\base.py", line 66, in find_element
+    element = WebDriverWait(self.driver, timeout, 1).until(EC.presence_of_element_located(locator))
+  File "C:\Python34\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.83' class='none'>
+    <td class='errorCase'><div class='testcase'>test_084: 删除账号</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.83')" >
+        错误</a>
+
+    <div id='div_ft3.83' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.83').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.83: Traceback (most recent call last):
+  File "D:\ISLI_RA\case\test_RAMS_system.py", line 748, in test_084
+    self.driver.loginaction('isli','aaaaaa')
+  File "D:\ISLI_RA\page\RAMS_loginpage.py", line 52, in loginaction
+    self.input_code(code)
+  File "D:\ISLI_RA\page\RAMS_loginpage.py", line 30, in input_code
+    self.send_keys(self.valicode_loc,code)
+  File "D:\ISLI_RA\common\base.py", line 87, in send_keys
+    element = self.find_element(locator)
+  File "D:\ISLI_RA\common\base.py", line 66, in find_element
+    element = WebDriverWait(self.driver, timeout, 1).until(EC.presence_of_element_located(locator))
+  File "C:\Python34\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.84' class='none'>
+    <td class='errorCase'><div class='testcase'>test_085: 删除后的账号无法登入</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.84')" >
+        错误</a>
+
+    <div id='div_ft3.84' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.84').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.84: Traceback (most recent call last):
+  File "D:\ISLI_RA\case\test_RAMS_system.py", line 763, in test_085
+    self.driver.loginaction(self.data1.read_cell(61,2),self.data1.read_cell(61,11))
+  File "D:\ISLI_RA\page\RAMS_loginpage.py", line 52, in loginaction
+    self.input_code(code)
+  File "D:\ISLI_RA\page\RAMS_loginpage.py", line 30, in input_code
+    self.send_keys(self.valicode_loc,code)
+  File "D:\ISLI_RA\common\base.py", line 87, in send_keys
+    element = self.find_element(locator)
+  File "D:\ISLI_RA\common\base.py", line 66, in find_element
+    element = WebDriverWait(self.driver, timeout, 1).until(EC.presence_of_element_located(locator))
+  File "C:\Python34\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='errorClass'>
+    <td>unittest.suite._ErrorHolder</td>
+    <td>2</td>
+    <td>0</td>
+    <td>0</td>
+    <td>2</td>
+    <td><a href="javascript:showClassDetail('c4',2)">详情</a></td>
+</tr>
+
+<tr id='ft4.1' class='none'>
+    <td class='errorCase'><div class='testcase'>Spcheck)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft4.1')" >
+        错误</a>
+
+    <div id='div_ft4.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft4.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft4.1: Traceback (most recent call last):
+  File "D:\ISLI_RA\case\test_RASPcheck.py", line 15, in setUpClass
+    cls.driver.login_success()
+  File "D:\ISLI_RA\page\RAMS_loginpage.py", line 41, in login_success
+    self.open(Login_RA_MS.Ra_MS_url)
+  File "D:\ISLI_RA\common\base.py", line 54, in open
+    self.driver.get(url)
+  File "C:\Python34\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 320, in get
+    self.execute(Command.GET, {'url': url})
+  File "C:\Python34\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 308, in execute
+    self.error_handler.check_response(response)
+  File "C:\Python34\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: Timeout loading page after 300000ms
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft4.2' class='none'>
+    <td class='errorCase'><div class='testcase'>Spmanagetest)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft4.2')" >
+        错误</a>
+
+    <div id='div_ft4.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft4.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft4.2: Traceback (most recent call last):
+  File "D:\ISLI_RA\case\test_RASPmanage.py", line 20, in tearDownClass
+    cls.driver.close()
+  File "D:\ISLI_RA\common\base.py", line 203, in close
+    self.driver.close()
+  File "C:\Python34\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 593, in close
+    self.execute(Command.CLOSE)
+  File "C:\Python34\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 308, in execute
+    self.error_handler.check_response(response)
+  File "C:\Python34\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.UnexpectedAlertPresentException: Alert Text: None
+Message: 
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='errorClass'>
+    <td>test_RASPmanage.Spmanagetest: RA 后台管理sp账户管理</td>
+    <td>41</td>
+    <td>34</td>
+    <td>0</td>
+    <td>7</td>
+    <td><a href="javascript:showClassDetail('c5',41)">详情</a></td>
+</tr>
+
+<tr id='pt5.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_001: sp账户管理界面</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_002: 用户名搜索正常</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_003: 用户性质机构搜索正常</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_004: 用户性质个人搜索成功</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_005: 状态正常搜索成功</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_006: 状态冻结搜索成功</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.7' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_007: 状态禁用搜索成功</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.8' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_008: 查看操作成功</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.9' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_009: 机构名称为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.10' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_010: 机构名称已存在</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.11' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_011: 注册地址为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.12' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_012: 社会代码14位</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.13' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_013: 社会代码非数字字母</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.14' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_014: 联系姓名为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.15' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_015: 固话区号错误</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.16' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_016: 固话区号为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.17' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_017: 固话小于6位</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.18' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_018: 固话含有非数字</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.19' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_019: 固话号码为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.20' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_020: 分机号含有特殊字符</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.21' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_021: 手机号为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.22' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_022: 手机号小于6位</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.23' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_023: 手机号含有非数字</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.24' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_024: 电子邮箱为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.25' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_025: 邮箱格式错误</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.26' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_026: 通讯地址为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.27' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_027: 邮编格式错误</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.28' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_028: 机构logo格式错误</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.29' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_029: 机构信用证扫描格式错误</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.30' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_030: 正常修改</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.31' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_031: 验证修改成功</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.32' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_032: table修改成功</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.33' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_033: 验证修改成功</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.34' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_034: 冻结原因为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='ft5.35' class='none'>
+    <td class='errorCase'><div class='testcase'>test_035: 冻结成功</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft5.35')" >
+        错误</a>
+
+    <div id='div_ft5.35' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft5.35').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft5.35: Traceback (most recent call last):
+  File "D:\ISLI_RA\case\test_RASPmanage.py", line 395, in test_035
+    self.driver.inputaction(self.driver.search_managename_loc,'liuhongliang_33@163.com')
+  File "D:\ISLI_RA\page\RA_SPManagePage.py", line 111, in inputaction
+    self.send_keys(element_loc,num)
+  File "D:\ISLI_RA\common\base.py", line 87, in send_keys
+    element = self.find_element(locator)
+  File "D:\ISLI_RA\common\base.py", line 66, in find_element
+    element = WebDriverWait(self.driver, timeout, 1).until(EC.presence_of_element_located(locator))
+  File "C:\Python34\lib\site-packages\selenium\webdriver\support\wait.py", line 71, in until
+    value = method(self._driver)
+  File "C:\Python34\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 63, in __call__
+    return _find_element(driver, self.locator)
+  File "C:\Python34\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 402, in _find_element
+    raise e
+  File "C:\Python34\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 398, in _find_element
+    return driver.find_element(*by)
+  File "C:\Python34\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 843, in find_element
+    'value': value})['value']
+  File "C:\Python34\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 308, in execute
+    self.error_handler.check_response(response)
+  File "C:\Python34\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.UnexpectedAlertPresentException: Alert Text: None
+Message: 
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft5.36' class='none'>
+    <td class='errorCase'><div class='testcase'>test_036: 禁用条件为空</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft5.36')" >
+        错误</a>
+
+    <div id='div_ft5.36' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft5.36').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft5.36: Traceback (most recent call last):
+  File "D:\ISLI_RA\case\test_RASPmanage.py", line 405, in test_036
+    self.driver.clickaction(self.driver.table_managestop_loc)
+  File "D:\ISLI_RA\page\RA_SPManagePage.py", line 107, in clickaction
+    self.click(element_loc)
+  File "D:\ISLI_RA\common\base.py", line 77, in click
+    element = self.find_element(locator)
+  File "D:\ISLI_RA\common\base.py", line 66, in find_element
+    element = WebDriverWait(self.driver, timeout, 1).until(EC.presence_of_element_located(locator))
+  File "C:\Python34\lib\site-packages\selenium\webdriver\support\wait.py", line 71, in until
+    value = method(self._driver)
+  File "C:\Python34\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 63, in __call__
+    return _find_element(driver, self.locator)
+  File "C:\Python34\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 402, in _find_element
+    raise e
+  File "C:\Python34\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 398, in _find_element
+    return driver.find_element(*by)
+  File "C:\Python34\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 843, in find_element
+    'value': value})['value']
+  File "C:\Python34\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 308, in execute
+    self.error_handler.check_response(response)
+  File "C:\Python34\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.UnexpectedAlertPresentException: Alert Text: None
+Message: 
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft5.37' class='none'>
+    <td class='errorCase'><div class='testcase'>test_037: 禁用成功</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft5.37')" >
+        错误</a>
+
+    <div id='div_ft5.37' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft5.37').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft5.37: Traceback (most recent call last):
+  File "D:\ISLI_RA\case\test_RASPmanage.py", line 414, in test_037
+    self.driver.inputaction(self.driver.alert_stopinput_loc,'测试禁用')
+  File "D:\ISLI_RA\page\RA_SPManagePage.py", line 111, in inputaction
+    self.send_keys(element_loc,num)
+  File "D:\ISLI_RA\common\base.py", line 87, in send_keys
+    element = self.find_element(locator)
+  File "D:\ISLI_RA\common\base.py", line 66, in find_element
+    element = WebDriverWait(self.driver, timeout, 1).until(EC.presence_of_element_located(locator))
+  File "C:\Python34\lib\site-packages\selenium\webdriver\support\wait.py", line 71, in until
+    value = method(self._driver)
+  File "C:\Python34\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 63, in __call__
+    return _find_element(driver, self.locator)
+  File "C:\Python34\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 402, in _find_element
+    raise e
+  File "C:\Python34\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 398, in _find_element
+    return driver.find_element(*by)
+  File "C:\Python34\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 843, in find_element
+    'value': value})['value']
+  File "C:\Python34\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 308, in execute
+    self.error_handler.check_response(response)
+  File "C:\Python34\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.UnexpectedAlertPresentException: Alert Text: None
+Message: 
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft5.38' class='none'>
+    <td class='errorCase'><div class='testcase'>test_038: 启用输入为空</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft5.38')" >
+        错误</a>
+
+    <div id='div_ft5.38' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft5.38').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft5.38: Traceback (most recent call last):
+  File "D:\ISLI_RA\case\test_RASPmanage.py", line 428, in test_038
+    self.driver.clickaction(self.driver.table_managestart_loc)
+  File "D:\ISLI_RA\page\RA_SPManagePage.py", line 107, in clickaction
+    self.click(element_loc)
+  File "D:\ISLI_RA\common\base.py", line 77, in click
+    element = self.find_element(locator)
+  File "D:\ISLI_RA\common\base.py", line 66, in find_element
+    element = WebDriverWait(self.driver, timeout, 1).until(EC.presence_of_element_located(locator))
+  File "C:\Python34\lib\site-packages\selenium\webdriver\support\wait.py", line 71, in until
+    value = method(self._driver)
+  File "C:\Python34\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 63, in __call__
+    return _find_element(driver, self.locator)
+  File "C:\Python34\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 402, in _find_element
+    raise e
+  File "C:\Python34\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 398, in _find_element
+    return driver.find_element(*by)
+  File "C:\Python34\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 843, in find_element
+    'value': value})['value']
+  File "C:\Python34\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 308, in execute
+    self.error_handler.check_response(response)
+  File "C:\Python34\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.UnexpectedAlertPresentException: Alert Text: None
+Message: 
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft5.39' class='none'>
+    <td class='errorCase'><div class='testcase'>test_039: 禁用启用成功</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft5.39')" >
+        错误</a>
+
+    <div id='div_ft5.39' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft5.39').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft5.39: Traceback (most recent call last):
+  File "D:\ISLI_RA\case\test_RASPmanage.py", line 437, in test_039
+    self.driver.inputaction(self.driver.alert_startinput_loc,'禁用启用')
+  File "D:\ISLI_RA\page\RA_SPManagePage.py", line 111, in inputaction
+    self.send_keys(element_loc,num)
+  File "D:\ISLI_RA\common\base.py", line 87, in send_keys
+    element = self.find_element(locator)
+  File "D:\ISLI_RA\common\base.py", line 66, in find_element
+    element = WebDriverWait(self.driver, timeout, 1).until(EC.presence_of_element_located(locator))
+  File "C:\Python34\lib\site-packages\selenium\webdriver\support\wait.py", line 71, in until
+    value = method(self._driver)
+  File "C:\Python34\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 63, in __call__
+    return _find_element(driver, self.locator)
+  File "C:\Python34\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 402, in _find_element
+    raise e
+  File "C:\Python34\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 398, in _find_element
+    return driver.find_element(*by)
+  File "C:\Python34\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 843, in find_element
+    'value': value})['value']
+  File "C:\Python34\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 308, in execute
+    self.error_handler.check_response(response)
+  File "C:\Python34\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.UnexpectedAlertPresentException: Alert Text: None
+Message: 
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft5.40' class='none'>
+    <td class='errorCase'><div class='testcase'>test_040: 冻结启用输入为空</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft5.40')" >
+        错误</a>
+
+    <div id='div_ft5.40' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft5.40').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft5.40: Traceback (most recent call last):
+  File "D:\ISLI_RA\case\test_RASPmanage.py", line 449, in test_040
+    self.driver.clickaction(self.driver.table_managefrost_loc)
+  File "D:\ISLI_RA\page\RA_SPManagePage.py", line 107, in clickaction
+    self.click(element_loc)
+  File "D:\ISLI_RA\common\base.py", line 77, in click
+    element = self.find_element(locator)
+  File "D:\ISLI_RA\common\base.py", line 66, in find_element
+    element = WebDriverWait(self.driver, timeout, 1).until(EC.presence_of_element_located(locator))
+  File "C:\Python34\lib\site-packages\selenium\webdriver\support\wait.py", line 71, in until
+    value = method(self._driver)
+  File "C:\Python34\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 63, in __call__
+    return _find_element(driver, self.locator)
+  File "C:\Python34\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 402, in _find_element
+    raise e
+  File "C:\Python34\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 398, in _find_element
+    return driver.find_element(*by)
+  File "C:\Python34\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 843, in find_element
+    'value': value})['value']
+  File "C:\Python34\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 308, in execute
+    self.error_handler.check_response(response)
+  File "C:\Python34\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.UnexpectedAlertPresentException: Alert Text: None
+Message: 
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft5.41' class='none'>
+    <td class='errorCase'><div class='testcase'>test_041: 冻结启用成功</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft5.41')" >
+        错误</a>
+
+    <div id='div_ft5.41' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft5.41').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft5.41: Traceback (most recent call last):
+  File "D:\ISLI_RA\case\test_RASPmanage.py", line 471, in test_041
+    self.driver.inputaction(self.driver.alert_startinput_loc,'冻结启用')
+  File "D:\ISLI_RA\page\RA_SPManagePage.py", line 111, in inputaction
+    self.send_keys(element_loc,num)
+  File "D:\ISLI_RA\common\base.py", line 87, in send_keys
+    element = self.find_element(locator)
+  File "D:\ISLI_RA\common\base.py", line 66, in find_element
+    element = WebDriverWait(self.driver, timeout, 1).until(EC.presence_of_element_located(locator))
+  File "C:\Python34\lib\site-packages\selenium\webdriver\support\wait.py", line 71, in until
+    value = method(self._driver)
+  File "C:\Python34\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 63, in __call__
+    return _find_element(driver, self.locator)
+  File "C:\Python34\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 402, in _find_element
+    raise e
+  File "C:\Python34\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 398, in _find_element
+    return driver.find_element(*by)
+  File "C:\Python34\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 843, in find_element
+    'value': value})['value']
+  File "C:\Python34\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 308, in execute
+    self.error_handler.check_response(response)
+  File "C:\Python34\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.UnexpectedAlertPresentException: Alert Text: None
+Message: 
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='errorClass'>
+    <td>test_RAhome.RameHomePage: 后台管理首页</td>
+    <td>30</td>
+    <td>28</td>
+    <td>0</td>
+    <td>2</td>
+    <td><a href="javascript:showClassDetail('c6',30)">详情</a></td>
+</tr>
+
+<tr id='pt6.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_001: 登入信息验证</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt6.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_002: 修改姓名为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt6.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_003: 固话区号为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt6.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_004: 固话区号含特殊字符</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt6.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_005: 固话区号一位</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt6.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_006: 固话号码为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt6.7' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_007: 固话号码小于六位</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt6.8' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_008: 固话号码含有特殊字符</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt6.9' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_009: 固话分机号含有特殊字符</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt6.10' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_010: 手机号为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt6.11' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_011: 手机号含有特殊字符</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt6.12' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_012: 手机号小于6位</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt6.13' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_013: 邮箱为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt6.14' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_014: 邮箱格式错误</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt6.15' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_015: 正常修改</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt6.16' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_016: 数据还原</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='ft6.17' class='none'>
+    <td class='errorCase'><div class='testcase'>test_017: 修改密码-原密码为空</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft6.17')" >
+        错误</a>
+
+    <div id='div_ft6.17' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft6.17').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft6.17: Traceback (most recent call last):
+  File "D:\ISLI_RA\case\test_RAhome.py", line 199, in test_017
+    self.assertIn('请输入原密码',self.driver.get_about(self.driver.error_pw_old_loc))
+  File "D:\ISLI_RA\page\RAMS_homepage.py", line 55, in get_about
+    return self.get_text(element_loc)
+  File "D:\ISLI_RA\common\base.py", line 221, in get_text
+    element = self.find_element(locator)
+  File "D:\ISLI_RA\common\base.py", line 66, in find_element
+    element = WebDriverWait(self.driver, timeout, 1).until(EC.presence_of_element_located(locator))
+  File "C:\Python34\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft6.18' class='none'>
+    <td class='errorCase'><div class='testcase'>test_018: 原密码小于6位</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft6.18')" >
+        错误</a>
+
+    <div id='div_ft6.18' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft6.18').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft6.18: Traceback (most recent call last):
+  File "D:\ISLI_RA\case\test_RAhome.py", line 205, in test_018
+    self.assertIn('且长度为 6 ~ 20',self.driver.get_about(self.driver.error_pw_old_loc))
+  File "D:\ISLI_RA\page\RAMS_homepage.py", line 55, in get_about
+    return self.get_text(element_loc)
+  File "D:\ISLI_RA\common\base.py", line 221, in get_text
+    element = self.find_element(locator)
+  File "D:\ISLI_RA\common\base.py", line 66, in find_element
+    element = WebDriverWait(self.driver, timeout, 1).until(EC.presence_of_element_located(locator))
+  File "C:\Python34\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt6.19' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_019: 新密码为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt6.20' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_020: 新密码小于6位</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt6.21' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_021: 新密码纯数字</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt6.22' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_022: 新密码纯字母</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt6.23' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_023: 确认密码为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt6.24' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_024: 新密码小于6位</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt6.25' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_025: 新密码纯数字</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt6.26' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_026: 新密码纯字母</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt6.27' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_027: 原密码错误</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt6.28' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_028: 新密码不一致</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt6.29' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_029: 修改成功</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt6.30' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_030: 密码还原</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr class='passClass'>
+    <td>test_Server.ServerMake: 服务管理-新增/修改</td>
+    <td>89</td>
+    <td>89</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c7',89)">详情</a></td>
+</tr>
+
+<tr id='pt7.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_001: 进入服务列表页成功</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_002: 服务编码搜索成功</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_003: 服务名称搜索成功</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_004: 关联名称搜索成功</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_005: 进入新增服务页面，服务名为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_006: 服务编码为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.7' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_007: 中文服务编码重复</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.8' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_008: 服务编码小于6位</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.9' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_009: 服务编码非数字</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.10' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_010: 自动获取编码正常-中文</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.11' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_011: 自动获取编码正常-英文</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.12' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_012: 关联类型为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.13' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_013: 关联字段长度为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.14' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_014: 关联字段长度非数字</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.15' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_015: 关联字段长度小数或负数</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.16' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_016: 关联分段长度为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.17' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_017: 关联分段长度非数字</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.18' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_018: 分段长度负数</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.19' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_019: 关联字段长度小数</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.20' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_020: 关联字段长度为0</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.21' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_021: 服务说明文件格式错误</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.22' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_022: 服务简介为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.23' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_023: 服务名为空-英文</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.24' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_024: 服务编码为空-英文</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.25' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_025: 服务编码重复-英文</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.26' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_026: 服务编码非数字-英文</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.27' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_027: 服务编码小于6位-英文</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.28' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_028: 关联类型为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.29' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_029: 关联字段长度为空-英文</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.30' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_030: 关联字段长度非数字-英文</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.31' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_031: 关联字段长度负数-英文</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.32' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_032: 关联字段长度小数-英文</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.33' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_033: 关联字段长度0-英文</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.34' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_034: 关联分段为空-英文</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.35' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_035: 关联分段非数字-英文</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.36' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_036: 关联分段负数-英文</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.37' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_037: 关联字段小数-英文</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.38' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_038: 关联分段长度0-英文</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.39' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_039: 服务说明文件格式错误-英文</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.40' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_040: 服务简介为空-英文</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.41' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_041: 服务说明文件为空-中文/英文</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.42' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_042: 关联分段和不一致</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.43' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_043: 验证关联类型中英文联动</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.44' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_044: 字段长度中英文联动</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.45' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_045: 连续申请成功</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.46' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_046: 服务名称中文重复</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.47' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_047: 关联类型已存在</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.48' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_048: 创建成功</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.49' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_049: 查看功能正常</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.50' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_050: 进入修改页面-服务名称为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.51' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_051: 修改-服务名称已存在</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.52' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_052: 修改-服务编码为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.53' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_053: 中文服务编码重复</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.54' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_054: 修改-服务编码小于6位</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.55' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_055: 修改-服务编码非数字</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.56' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_056: 修改-自动获取编码正常-中文</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.57' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_057: 修改-自动获取编码正常-英文</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.58' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_058: 修改-关联字段长度为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.59' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_059: 修改-关联字段长度非数字</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.60' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_060: 关联字段长度小数或负数</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.61' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_061: 修改-关联分段非数字</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.62' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_062: 修改-分段长度负数</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.63' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_063: 修改-关联字段长度小数</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.64' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_064: 修改-关联字段长度为0</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.65' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_065: 修改-服务说明文件格式错误</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.66' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_066: 修改-服务简介为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.67' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_067: 修改-服务名为空-英文</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.68' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_068: 修改-服务编码为空-英文</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.69' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_069: 修改-服务名已存在英文</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.70' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_070: 修改-服务编码重复-英文</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.71' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_080: 修改-服务编码非数字-英文</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.72' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_081: 修改-服务编码小于6位-英文</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.73' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_082: 修改-关联字段长度为空-英文</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.74' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_083: 修改-关联字段长度非数字-英文</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.75' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_084: 修改-关联字段长度负数-英文</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.76' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_085: 修改-关联字段长度小数-英文</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.77' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_086: 修改-关联字段长度0-英文</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.78' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_087: 修改-联分段为空-英文</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.79' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_088: 修改-关联分段非数字-英文</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.80' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_089: 修改-关联分段负数-英文</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.81' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_090: 修改-关联分段负数-英文</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.82' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_091: 修改-关联分段长度0-英文</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.83' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_092: 修改-服务说明文件格式错误-英文</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.84' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_093: 服务简介为空-英文</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.85' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_094: 修改-分段和与总数不一致</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.86' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_095: 修改成功</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.87' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_096: 查看修改后结果</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.88' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_097: table修改按钮修改成功</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.89' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_098: 查看修改后结果</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr class='errorClass'>
+    <td>test_createType.Rams_datasys: RA后台管理-服务管理-关联/实体类型</td>
+    <td>52</td>
+    <td>35</td>
+    <td>4</td>
+    <td>13</td>
+    <td><a href="javascript:showClassDetail('c8',52)">详情</a></td>
+</tr>
+
+<tr id='pt8.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_001: 进入新增实体</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_002: 实体中文描述为空进行提交</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_003: 英文名为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_004: 英文描述为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_005: 中文名为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_006: 新增时候取消</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.7' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_007: 正常提交实体类型</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.8' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_008: 连续多次提交实体类型申请</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.9' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_009: 新增实体中文名重复</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.10' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_010: 新增实体英文名重复</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.11' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_011: 查看</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.12' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_012: 修改的中文实体名为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.13' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_013: 修改中文描述为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.14' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_014: 修改英文名为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.15' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_015: 修改英文描述为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.16' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_016: 修改已存在的中文名失败</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.17' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_017: 修改已存在的英文名失败</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.18' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_018: 正常修改成功</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.19' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_019: 列表入口修改成功</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.20' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_020: 实体类型搜索搜索		测试数据1515741699</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.21' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_021: 停用加搜索</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.22' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_022: 启用 加搜索</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.23' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_023: 进入新增关联类型页面</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.24' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_024: 操作中文源类型为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.25' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_025: 操作中文关联类型为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.26' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_026: 操作中文目标类型为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.27' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_027: 中文描述为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.28' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_028: 英文关联名为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.29' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_029: 操作英文源为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.30' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_030: 操作英文目标类型为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='ft8.31' class='none'>
+    <td class='errorCase'><div class='testcase'>test_031: 英文描述为空</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft8.31')" >
+        错误</a>
+
+    <div id='div_ft8.31' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft8.31').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft8.31: Traceback (most recent call last):
+  File "D:\ISLI_RA\case\test_createType.py", line 326, in test_031
+    self.assertIn('请输入描述',self.driver.get_about(self.driver.error_associationaboutEnloc))
+  File "D:\ISLI_RA\page\RAMS_CreateTypePage.py", line 98, in get_about
+    return self.get_text(element_loc)
+  File "D:\ISLI_RA\common\base.py", line 221, in get_text
+    element = self.find_element(locator)
+  File "D:\ISLI_RA\common\base.py", line 66, in find_element
+    element = WebDriverWait(self.driver, timeout, 1).until(EC.presence_of_element_located(locator))
+  File "C:\Python34\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt8.32' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_032: 新增时取消并重新进入</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.33' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_033: 正常提交注册</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.34' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_034: 连续提交多次申请</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='ft8.35' class='none'>
+    <td class='failCase'><div class='testcase'>test_035: 新增关联类型名称中文名重复</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft8.35')" >
+        失败</a>
+
+    <div id='div_ft8.35' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft8.35').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft8.35: Traceback (most recent call last):
+  File "D:\ISLI_RA\case\test_createType.py", line 373, in test_035
+    self.assertIn('名称已存在',self.driver.get_about(self.driver.error_associationnameOneCnloc))
+AssertionError: '名称已存在' not found in ''
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft8.36' class='none'>
+    <td class='failCase'><div class='testcase'>test_036: 新增关联类型名称英文名重复</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft8.36')" >
+        失败</a>
+
+    <div id='div_ft8.36' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft8.36').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft8.36: Traceback (most recent call last):
+  File "D:\ISLI_RA\case\test_createType.py", line 389, in test_036
+    self.assertTrue(self.driver.get_about(self.driver.error_associationnameOneEnloc))
+AssertionError: '' is not true
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft8.37' class='none'>
+    <td class='errorCase'><div class='testcase'>test_037: 查看关联类型</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft8.37')" >
+        错误</a>
+
+    <div id='div_ft8.37' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft8.37').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft8.37: Traceback (most recent call last):
+  File "D:\ISLI_RA\case\test_createType.py", line 397, in test_037
+    self.driver.clickaction(self.driver.table_assocviewloc)
+  File "D:\ISLI_RA\page\RAMS_CreateTypePage.py", line 90, in clickaction
+    self.click(element_loc)
+  File "D:\ISLI_RA\common\base.py", line 77, in click
+    element = self.find_element(locator)
+  File "D:\ISLI_RA\common\base.py", line 66, in find_element
+    element = WebDriverWait(self.driver, timeout, 1).until(EC.presence_of_element_located(locator))
+  File "C:\Python34\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft8.38' class='none'>
+    <td class='errorCase'><div class='testcase'>test_038: 修改-关联名中文为空</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft8.38')" >
+        错误</a>
+
+    <div id='div_ft8.38' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft8.38').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft8.38: Traceback (most recent call last):
+  File "D:\ISLI_RA\case\test_createType.py", line 402, in test_038
+    self.driver.click(('css selector','[value="修改"]'))
+  File "D:\ISLI_RA\common\base.py", line 77, in click
+    element = self.find_element(locator)
+  File "D:\ISLI_RA\common\base.py", line 66, in find_element
+    element = WebDriverWait(self.driver, timeout, 1).until(EC.presence_of_element_located(locator))
+  File "C:\Python34\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft8.39' class='none'>
+    <td class='failCase'><div class='testcase'>test_039: 修改-中文关联名重复</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft8.39')" >
+        失败</a>
+
+    <div id='div_ft8.39' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft8.39').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft8.39: Traceback (most recent call last):
+  File "D:\ISLI_RA\case\test_createType.py", line 414, in test_039
+    self.assertIn("名称已存在",self.driver.get_about(self.driver.error_associationnameOneCnloc))
+AssertionError: '名称已存在' not found in ''
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft8.40' class='none'>
+    <td class='errorCase'><div class='testcase'>test_040: 修改-中文描述为空</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft8.40')" >
+        错误</a>
+
+    <div id='div_ft8.40' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft8.40').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft8.40: Traceback (most recent call last):
+  File "D:\ISLI_RA\case\test_createType.py", line 423, in test_040
+    self.assertIn('请输入描述',self.driver.get_about(self.driver.error_associationaboutCnloc))
+  File "D:\ISLI_RA\page\RAMS_CreateTypePage.py", line 98, in get_about
+    return self.get_text(element_loc)
+  File "D:\ISLI_RA\common\base.py", line 221, in get_text
+    element = self.find_element(locator)
+  File "D:\ISLI_RA\common\base.py", line 66, in find_element
+    element = WebDriverWait(self.driver, timeout, 1).until(EC.presence_of_element_located(locator))
+  File "C:\Python34\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft8.41' class='none'>
+    <td class='errorCase'><div class='testcase'>test_041: 修改-英文名为空</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft8.41')" >
+        错误</a>
+
+    <div id='div_ft8.41' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft8.41').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft8.41: Traceback (most recent call last):
+  File "D:\ISLI_RA\case\test_createType.py", line 432, in test_041
+    self.assertIn("请输入关联类型名称",self.driver.get_about(self.driver.error_associationnameEnloc))
+  File "D:\ISLI_RA\page\RAMS_CreateTypePage.py", line 98, in get_about
+    return self.get_text(element_loc)
+  File "D:\ISLI_RA\common\base.py", line 221, in get_text
+    element = self.find_element(locator)
+  File "D:\ISLI_RA\common\base.py", line 66, in find_element
+    element = WebDriverWait(self.driver, timeout, 1).until(EC.presence_of_element_located(locator))
+  File "C:\Python34\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft8.42' class='none'>
+    <td class='failCase'><div class='testcase'>test_042: 修改-英文名重复</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft8.42')" >
+        失败</a>
+
+    <div id='div_ft8.42' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft8.42').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft8.42: Traceback (most recent call last):
+  File "D:\ISLI_RA\case\test_createType.py", line 441, in test_042
+    self.assertTrue(self.driver.get_about(self.driver.error_associationnameOneEnloc))
+AssertionError: '' is not true
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft8.43' class='none'>
+    <td class='errorCase'><div class='testcase'>test_043: 修改-英文描述为空</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft8.43')" >
+        错误</a>
+
+    <div id='div_ft8.43' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft8.43').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft8.43: Traceback (most recent call last):
+  File "D:\ISLI_RA\case\test_createType.py", line 450, in test_043
+    self.assertIn('请输入描述',self.driver.get_about(self.driver.error_associationaboutEnloc))
+  File "D:\ISLI_RA\page\RAMS_CreateTypePage.py", line 98, in get_about
+    return self.get_text(element_loc)
+  File "D:\ISLI_RA\common\base.py", line 221, in get_text
+    element = self.find_element(locator)
+  File "D:\ISLI_RA\common\base.py", line 66, in find_element
+    element = WebDriverWait(self.driver, timeout, 1).until(EC.presence_of_element_located(locator))
+  File "C:\Python34\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt8.44' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_044: 正常修改成功</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='ft8.45' class='none'>
+    <td class='errorCase'><div class='testcase'>test_045: 列表修改成功</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft8.45')" >
+        错误</a>
+
+    <div id='div_ft8.45' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft8.45').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft8.45: Traceback (most recent call last):
+  File "D:\ISLI_RA\case\test_createType.py", line 479, in test_045
+    self.assertEqual(self.assocname2,self.driver.get_about(self.driver.table_associationnameloc))
+  File "D:\ISLI_RA\page\RAMS_CreateTypePage.py", line 98, in get_about
+    return self.get_text(element_loc)
+  File "D:\ISLI_RA\common\base.py", line 221, in get_text
+    element = self.find_element(locator)
+  File "D:\ISLI_RA\common\base.py", line 66, in find_element
+    element = WebDriverWait(self.driver, timeout, 1).until(EC.presence_of_element_located(locator))
+  File "C:\Python34\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft8.46' class='none'>
+    <td class='errorCase'><div class='testcase'>test_046: 停用+状态停用搜索</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft8.46')" >
+        错误</a>
+
+    <div id='div_ft8.46' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft8.46').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft8.46: Traceback (most recent call last):
+  File "D:\ISLI_RA\case\test_createType.py", line 486, in test_046
+    self.driver.clickaction(self.driver.table_assocstoploc)
+  File "D:\ISLI_RA\page\RAMS_CreateTypePage.py", line 90, in clickaction
+    self.click(element_loc)
+  File "D:\ISLI_RA\common\base.py", line 77, in click
+    element = self.find_element(locator)
+  File "D:\ISLI_RA\common\base.py", line 66, in find_element
+    element = WebDriverWait(self.driver, timeout, 1).until(EC.presence_of_element_located(locator))
+  File "C:\Python34\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft8.47' class='none'>
+    <td class='errorCase'><div class='testcase'>test_047: 关联类型搜索</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft8.47')" >
+        错误</a>
+
+    <div id='div_ft8.47' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft8.47').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft8.47: Traceback (most recent call last):
+  File "D:\ISLI_RA\case\test_createType.py", line 498, in test_047
+    self.driver.selectaction(self.driver.search_statusloc,index=0)
+  File "D:\ISLI_RA\page\RAMS_CreateTypePage.py", line 102, in selectaction
+    self.select_by_index(element_loc,index =0)
+  File "D:\ISLI_RA\common\base.py", line 250, in select_by_index
+    element = self.find_element(locator)
+  File "D:\ISLI_RA\common\base.py", line 66, in find_element
+    element = WebDriverWait(self.driver, timeout, 1).until(EC.presence_of_element_located(locator))
+  File "C:\Python34\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft8.48' class='none'>
+    <td class='errorCase'><div class='testcase'>test_048: 源类型搜索</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft8.48')" >
+        错误</a>
+
+    <div id='div_ft8.48' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft8.48').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft8.48: Traceback (most recent call last):
+  File "D:\ISLI_RA\case\test_createType.py", line 507, in test_048
+    self.driver.inputaction(self.driver.search_sourceloc,self.entityname2)
+  File "D:\ISLI_RA\page\RAMS_CreateTypePage.py", line 94, in inputaction
+    self.send_keys(element_loc,num)
+  File "D:\ISLI_RA\common\base.py", line 87, in send_keys
+    element = self.find_element(locator)
+  File "D:\ISLI_RA\common\base.py", line 66, in find_element
+    element = WebDriverWait(self.driver, timeout, 1).until(EC.presence_of_element_located(locator))
+  File "C:\Python34\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft8.49' class='none'>
+    <td class='errorCase'><div class='testcase'>test_049: 目标类型搜索</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft8.49')" >
+        错误</a>
+
+    <div id='div_ft8.49' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft8.49').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft8.49: Traceback (most recent call last):
+  File "D:\ISLI_RA\case\test_createType.py", line 515, in test_049
+    self.driver.clearaction(self.driver.search_sourceloc)
+  File "D:\ISLI_RA\page\RAMS_CreateTypePage.py", line 110, in clearaction
+    self.clearelement(loc)
+  File "D:\ISLI_RA\common\base.py", line 93, in clearelement
+    element = self.find_element(locator)
+  File "D:\ISLI_RA\common\base.py", line 66, in find_element
+    element = WebDriverWait(self.driver, timeout, 1).until(EC.presence_of_element_located(locator))
+  File "C:\Python34\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft8.50' class='none'>
+    <td class='errorCase'><div class='testcase'>test_050: 正常启用</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft8.50')" >
+        错误</a>
+
+    <div id='div_ft8.50' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft8.50').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft8.50: Traceback (most recent call last):
+  File "D:\ISLI_RA\case\test_createType.py", line 524, in test_050
+    self.driver.clearaction(self.driver.search_targetloc)
+  File "D:\ISLI_RA\page\RAMS_CreateTypePage.py", line 110, in clearaction
+    self.clearelement(loc)
+  File "D:\ISLI_RA\common\base.py", line 93, in clearelement
+    element = self.find_element(locator)
+  File "D:\ISLI_RA\common\base.py", line 66, in find_element
+    element = WebDriverWait(self.driver, timeout, 1).until(EC.presence_of_element_located(locator))
+  File "C:\Python34\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft8.51' class='none'>
+    <td class='errorCase'><div class='testcase'>test_051: 停用新增关联</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft8.51')" >
+        错误</a>
+
+    <div id='div_ft8.51' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft8.51').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft8.51: Traceback (most recent call last):
+  File "D:\ISLI_RA\case\test_createType.py", line 537, in test_051
+    self.driver.clickaction(self.driver.search_buttonloc)
+  File "D:\ISLI_RA\page\RAMS_CreateTypePage.py", line 90, in clickaction
+    self.click(element_loc)
+  File "D:\ISLI_RA\common\base.py", line 77, in click
+    element = self.find_element(locator)
+  File "D:\ISLI_RA\common\base.py", line 66, in find_element
+    element = WebDriverWait(self.driver, timeout, 1).until(EC.presence_of_element_located(locator))
+  File "C:\Python34\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt8.52' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_052: 停用新增实体</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr class='failClass'>
+    <td>test_spRegister.web_SPRegisterTest: SP账户注册</td>
+    <td>34</td>
+    <td>32</td>
+    <td>2</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c9',34)">详情</a></td>
+</tr>
+
+<tr id='pt9.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_001: 机构必填项为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt9.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_002: 必填项-机构名称已经存在-注册失败</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt9.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_003: 必填项-机构名称长度101-自动截取100长度</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt9.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_004: 必填项-统一社会信用代码为19位-自动截取</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt9.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_005: 必填项-统一社会信用代码为14位-注册失败</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt9.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_006: 必填项-统一社会信用代码含汉字特殊字符-注册失败</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt9.7' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_007: 官方网址输入错误格式-注册失败</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt9.8' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_008: 个人用户必填项为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt9.9' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_009: 个人用户身份证非数字</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt9.10' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_010: 个人身份证非18位</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt9.11' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_011: 个人身份证输入非身份证</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt9.12' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_012: 个人身份证上传格式错误</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt9.13' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_013: 分支机构必填项为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt9.14' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_014: 分支机构邮编长度或类型错误</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt9.15' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_015: 分支机构-网址错误</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt9.16' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_016: 分支机构联系邮箱格式错误</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt9.17' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_017: 添加多个分支机构功能正常</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt9.18' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_018: 必填项-联系人长度26字符-自动截取</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt9.19' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_019: 必填项-联系人电话-手机号长度12位-自动截取</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt9.20' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_020: 必填项-联系人电话-手机号含非数字-注册失败</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt9.21' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_021: 职位长度26位-自动截取</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt9.22' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_022: 必填项-电子邮箱格式错误-注册失败</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt9.23' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_023: 邮编输入非数字--注册失败</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt9.24' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_024: 邮编输入5位数字--注册失败</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt9.25' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_025: 邮编输入7位数字-自动截取</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt9.26' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_026: 必填项-用户名格式错误-注册失败</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt9.27' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_027: 必填项-邮箱验证码格式错误-注册失败</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='ft9.28' class='none'>
+    <td class='failCase'><div class='testcase'>test_028: 用户名已注册</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft9.28')" >
+        失败</a>
+
+    <div id='div_ft9.28' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft9.28').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft9.28: Traceback (most recent call last):
+  File "D:\ISLI_RA\case\test_spRegister.py", line 349, in test_028
+    self.assertEqual(self.sp.error_hint(self.sp.error_email_loc), '该邮箱已注册')
+AssertionError: '' != '该邮箱已注册'
++ 该邮箱已注册
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft9.29' class='none'>
+    <td class='failCase'><div class='testcase'>test_029: 用户名已提交申请，待审核</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft9.29')" >
+        失败</a>
+
+    <div id='div_ft9.29' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft9.29').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft9.29: Traceback (most recent call last):
+  File "D:\ISLI_RA\case\test_spRegister.py", line 356, in test_029
+    self.assertEqual(self.sp.error_hint(self.sp.error_email_loc), '该邮箱已提交申请')
+AssertionError: '' != '该邮箱已提交申请'
++ 该邮箱已提交申请
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt9.30' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_030: 必填项-机构LOGO格式错误-注册失败</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt9.31' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_031: 必填项-机构扫描件格式错误-注册失败</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt9.32' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_032: 机构用户正常填写注册信息</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt9.33' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_033: 个人用户正常注册</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt9.34' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_034: 机构用户添加分支机构</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='total_row'>
+    <td>总计</td>
+    <td>339</td>
+    <td>274</td>
+    <td>27</td>
+    <td>38</td>
+    <td>&nbsp;</td>
+</tr>
+</table>
+
+<div id='ending'>&nbsp;</div>
+
+</div>
+</body>
+</html>

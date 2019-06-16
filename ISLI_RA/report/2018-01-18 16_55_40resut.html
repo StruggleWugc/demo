@@ -1,0 +1,1932 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>ISLI_RA测试报告</title>
+    <meta name="generator" content="HTMLTestRunner 0.8.3"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    
+<style type="text/css" media="screen">
+body        { font-family: verdana, arial, helvetica, sans-serif; font-size: 80%; }
+table       { font-size: 100%; }
+pre         { white-space: pre-wrap;word-wrap: break-word; }
+
+/* -- heading ---------------------------------------------------------------------- */
+h1 {
+	font-size: 16pt;
+	color: gray;
+}
+.heading {
+    margin-top: 0ex;
+    margin-bottom: 1ex;
+}
+
+.heading .attribute {
+    margin-top: 1ex;
+    margin-bottom: 0;
+}
+
+.heading .description {
+    margin-top: 2ex;
+    margin-bottom: 3ex;
+}
+
+/* -- css div popup ------------------------------------------------------------------------ */
+a.popup_link {
+}
+
+a.popup_link:hover {
+    color: red;
+}
+
+.popup_window {
+    display: none;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    /*border: solid #627173 1px; */
+    padding: 10px;
+    background-color: #E6E6D6;
+    font-family: "Lucida Console", "Courier New", Courier, monospace;
+    text-align: left;
+    font-size: 8pt;
+    /* width: 500px;*/
+}
+
+}
+/* -- report ------------------------------------------------------------------------ */
+#show_detail_line {
+    margin-top: 3ex;
+    margin-bottom: 1ex;
+}
+#result_table {
+    width: 99%;
+}
+#header_row {
+    font-weight: bold;
+    color: white;
+    background-color: #777;
+}
+#total_row  { font-weight: bold; }
+.passClass  { background-color: #74A474; }
+.failClass  { background-color: #FDD283; }
+.errorClass { background-color: #FF6600; }
+.passCase   { color: #6c6; }
+.failCase   { color: #FF6600; font-weight: bold; }
+.errorCase  { color: #c00; font-weight: bold; }
+.hiddenRow  { display: none; }
+.testcase   { margin-left: 2em; }
+
+
+/* -- ending ---------------------------------------------------------------------- */
+#ending {
+}
+
+#div_base {
+            position:absolute;
+            top:0%;
+            left:5%;
+            right:5%;
+            width: auto;
+            height: auto;
+            margin: -15px 0 0 0;
+}
+</style>
+
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<script language="javascript" type="text/javascript"><!--
+output_list = Array();
+
+/* level - 0:Summary; 1:Failed; 2:All */
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level < 1) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level > 1) {
+                tr.className = '';
+            }
+            else {
+                tr.className = 'hiddenRow';
+            }
+        }
+    }
+}
+
+
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+        tid0 = 't' + cid.substr(1) + '.' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        if (toHide) {
+            document.getElementById('div_'+tid).style.display = 'none'
+            document.getElementById(tid).className = 'hiddenRow';
+        }
+        else {
+            document.getElementById(tid).className = '';
+        }
+    }
+}
+
+
+function showTestDetail(div_id){
+    var details_div = document.getElementById(div_id)
+    var displayState = details_div.style.display
+    // alert(displayState)
+    if (displayState != 'block' ) {
+        displayState = 'block'
+        details_div.style.display = 'block'
+    }
+    else {
+        details_div.style.display = 'none'
+    }
+}
+
+
+function html_escape(s) {
+    s = s.replace(/&/g,'&amp;');
+    s = s.replace(/</g,'&lt;');
+    s = s.replace(/>/g,'&gt;');
+    return s;
+}
+
+/* obsoleted by detail in <div>
+function showOutput(id, name) {
+    var w = window.open("", //url
+                    name,
+                    "resizable,scrollbars,status,width=800,height=450");
+    d = w.document;
+    d.write("<pre>");
+    d.write(html_escape(output_list[id]));
+    d.write("\n");
+    d.write("<a href='javascript:window.close()'>close</a>\n");
+    d.write("</pre>\n");
+    d.close();
+}
+*/
+--></script>
+<div id="div_base">
+
+<div class='page-header'>
+<h1>ISLI_RA测试报告</h1>
+<p class='attribute'><strong>开始时间:</strong> 2018-01-18 16:55:40</p>
+<p class='attribute'><strong>运行时长:</strong> 0:10:38.816538</p>
+<p class='attribute'><strong>状态:</strong> 通过 317 失败 1</p>
+
+</div>
+<p class='description'>用例执行情况</p>
+
+
+
+<div class="btn-group btn-group-sm">
+<button class="btn btn-default" onclick='javascript:showCase(0)'>总结</button>
+<button class="btn btn-default" onclick='javascript:showCase(1)'>失败</button>
+<button class="btn btn-default" onclick='javascript:showCase(2)'>全部</button>
+</div>
+<p></p>
+<table id='result_table' class="table table-bordered">
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+<tr id='header_row'>
+    <td>测试套件/测试用例</td>
+    <td>总数</td>
+    <td>通过</td>
+    <td>失败</td>
+    <td>错误</td>
+    <td>查看</td>
+</tr>
+
+<tr class='passClass'>
+    <td>test_LCsign.Login_test</td>
+    <td>106</td>
+    <td>106</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c1',106)">详情</a></td>
+</tr>
+
+<tr id='pt1.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_001: 邮箱格式错误</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_002: 邮箱已注册</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_003: 申请人姓名超过20字符</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_004: 验证电话号码输入框一为中文</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_005: 验证电话号码输入框一为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_006: 验证电话号码输入框二为中文</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.7' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_007: 验证电话号码输入框二为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.8' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_008: 验证电话号码输入框二小于6位</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.9' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_009: 联系电话手机超过11位</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.10' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_010: 联系电话手机小于11位</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.11' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_011: 联系电话手机非数字</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.12' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_012: 选择出版单位省份</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.13' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_013: 选择出版单位归属</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.14' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_014: 选择出版单位归属集团下属</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.15' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_015: 出版单位中文名超过100字符长度</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.16' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_016: 出版社英文长度超过500</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.17' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_017: 出版单位英文名不为数字或字母</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.18' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_018: 统一社会代码非数字</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.19' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_019: 统一社会代码非15或18位</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.20' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_020: 出版范围超过200字符长度</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.21' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_021: 通讯地址超过100字符长度</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.22' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_022: 邮编不为数字</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.23' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_023: 邮编小于六位</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.24' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_024: 邮编大于六位</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.25' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_025: 出版单位网址格式错误</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.26' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_026: 主办单位超过100字符长度</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.27' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_027: 主管单位超过100字符长度</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.28' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_028: 法人代表姓名超过20字符</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.29' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_029: 法人代表电话输入框一位非数字</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.30' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_030: 法人代表电话输入框一位空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.31' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_031: 法人代表电话输入框二为非数字</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.32' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_032: 法人代表电话输入框二为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.33' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_033: 法人代表电话输入框二小于6位</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.34' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_034: 法人代表手机非数字</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.35' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_035: 法人代表手机大于11位</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.36' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_036: 法人代表手机小于11位</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.37' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_037: 法人代表职务超过20字符</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.38' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_038: 法人代表传真不为数字</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.39' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_039: 法人代表传真不为数字</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.40' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_040: 法人代表传真大于13位</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.41' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_041: 法人代表邮箱格式不正确</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.42' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_042: 联系人姓名超过20字符</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.43' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_043: 联系人电话输入框一位非数字</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.44' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_044: 联系人电话输入框一位空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.45' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_045: 联系人电话输入框二为非数字</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.46' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_046: 联系人电话输入框二为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.47' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_047: 联系人电话输入框二小于6位</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.48' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_048: 联系人手机非数字</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.49' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_049: 联系人手机大于11位</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.50' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_050: 联系人手机小于11位</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.51' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_051: 联系人职务超过20字符</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.52' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_052: 联系人传真非数字</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.53' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_053: 联系人传真小于7位</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.54' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_054: 联系人传真大于13位</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.55' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_055: 联系人邮箱格式错误</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.56' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_056: 出版物资质勾选图书</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.57' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_057: 出版物资质勾选报纸</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.58' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_058: 出版物资质勾选期刊</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.59' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_059: 出版物资质勾选音像</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.60' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_060: 出版物资质勾选电子出版物</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.61' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_061: 图书isbn输入框一为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.62' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_062: 图书ISBN输入框二为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.63' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_063: 图书ISBN输入框三为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.64' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_064: 图书ISBN输入框一不为978/979</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.65' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_065: 图书ISBN输入框二超过1位</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.66' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_066: 图书ISBN输入框二为非数字</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.67' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_067: 图书ISBN输入框三小于2位</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.68' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_068: 图书ISBN输入框三大于7位</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.69' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_069: 图书ISBN输入框三非数字</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.70' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_070: 报纸CN第一个输入框为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.71' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_071: 报纸CN第一个输入框小于2位</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.72' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_072: 报纸CN第一个输入框大于2位</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.73' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_073: 报纸CN第一个输入框非数字</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.74' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_074: 报纸CN第二个输入框为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.75' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_075: '期刊ISSN输入框一为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.76' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_076: '期刊ISSN输入框二为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.77' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_077: 音像isbn输入框一为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.78' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_078: 音像ISBN输入框二为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.79' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_079: 音像ISBN输入框三为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.80' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_080: 音像ISBN输入框一不为978/979</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.81' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_081: 音像ISBN输入框二超过1位</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.82' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_082: 音像ISBN输入框二为非数字</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.83' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_083: 音像ISBN输入框三小于2位</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.84' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_084: 音像ISBN输入框三大于7位</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.85' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_085: 音像ISBN输入框三非数字</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.86' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_086: 电子出版物CN第一个输入框为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.87' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_087: 电子出版物CN第一个输入框小于2位</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.88' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_088: 电子出版物CN第一个输入框大于2位</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.89' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_089: 电子出版物CN第一个输入框非数字</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.90' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_090: 电子出版物CN第二个输入框为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.91' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_091: 电子出版物isbn输入框一为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.92' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_092: 电子出版物ISBN输入框二为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.93' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_093: 电子出版物ISBN输入框三为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.94' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_094: 电子出版物ISBN输入框一不为978/979</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.95' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_095: 电子出版物ISBN输入框二超过1位</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.96' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_096: 电子出版物ISBN输入框二为非数字</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.97' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_097: 电子出版物ISBN输入框三小于2位</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.98' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_098: 电子出版物ISBN输入框三大于7位</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.99' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_099: 电子出版物ISBN输入框三非数字</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.100' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_100: 返回上一步：注册协议界面</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.101' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_101: 协议页面跳转至信息填写页面</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.102' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_102: 单个必填项错误进行提交</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.103' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_103: 所有必填项输入正确</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.104' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_104: 非必填项输入错误    --电话号码错误</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.105' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_105: 所有输入框正常输入注册</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.106' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_106: 管理后台验证注册成功</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr class='passClass'>
+    <td>test_LCsign_flow.Sign_flow</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c2',1)">详情</a></td>
+</tr>
+
+<tr id='pt2.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_001: 选择注册类型页面至注册协议页面之间跳转</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr class='passClass'>
+    <td>test_RAMS_login.Rams_Login</td>
+    <td>6</td>
+    <td>6</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c3',6)">详情</a></td>
+</tr>
+
+<tr id='pt3.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_01: 用户名为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt3.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_02: 用户名不存在</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt3.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_03: 密码为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt3.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_04: 密码错误</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt3.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_05: 验证码为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt3.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_06: 登入成功</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr class='failClass'>
+    <td>test_RAMS_system.Rams_sysmanage</td>
+    <td>84</td>
+    <td>83</td>
+    <td>1</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c4',84)">详情</a></td>
+</tr>
+
+<tr id='pt4.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_001: 进入角色管理</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_002: 创建角色所属区域为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_003: 创建角色名称中文为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_004: 英文区域为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_005: 角色名称英文名为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_006: 正常创建成功</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.7' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_007: 角色名称中文已存在</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.8' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_008: 英文角色名已存在</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.9' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_009: 测试修改区域为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.10' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_010: 修改-角色名称中文已存在</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.11' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_011: 修改角色名称中文名为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.12' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_012: 修改角色区域英文为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.13' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_013: 修改-英文角色名已存在</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.14' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_014: 修改英文角色名为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.15' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_015: 正常修改成功</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.16' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_016: 删除新建角色</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.17' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_017: 停用角色</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.18' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_018: 启用角色后删除</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.19' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_019: 进入系统账户创建帐户</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.20' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_020: 用户名为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.21' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_021: 用户名小于3位</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.22' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_022: 用户名非数字/字母/下划线</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.23' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_023: 用户名已存在</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.24' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_024: 工号为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.25' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_025: 工号小于6位</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.26' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_026: 工号非数字/字母</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.27' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_027: 工号已存在</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.28' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_028: 姓名为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.29' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_029: 姓名为符号</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.30' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_030: 固话区号为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.31' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_031: 区号非数字</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.32' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_032: 固话号码为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.33' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_033: 固定号码非数字</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.34' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_034: 固定号码小于6位</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.35' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_035: 分机号非数字</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.36' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_036: 手机号为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.37' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_037: 手机号码小于6位</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.38' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_038: 手机号码非数字</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.39' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_039: 邮箱为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.40' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_040: 邮箱非数字字母符号</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.41' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_041: 非邮箱格式</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.42' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_042: 邮箱已使用</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.43' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_043: 密码为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.44' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_044: 密码小于6位</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.45' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_045: 密码为纯数字</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.46' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_046: 密码为纯字母</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.47' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_047: 确认密码为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.48' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_048: 确认密码小于6位</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.49' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_049: 确认密码为纯数字</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.50' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_050: 确认密码为纯字母</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.51' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_051: 确认密码与密码不一致</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.52' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_052: 固话国际区号\手机区号切换正常</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.53' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_053: 正常注册</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.54' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_054: 分配角色</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.55' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_055: 验证注册账号工号能登入</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.56' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_056: 验证账号用户名能登入</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.57' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_057: 测试禁用账号</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='ft4.58' class='none'>
+    <td class='failCase'><div class='testcase'>test_059: 测试启用账号</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft4.58')" >
+        失败</a>
+
+    <div id='div_ft4.58' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft4.58').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft4.58: Traceback (most recent call last):
+  File "E:\RA\ISLI_RA\case\test_RAMS_system.py", line 547, in test_059
+    self.assertEqual('正常',self.driver.get_about(self.driver.table_accountsstatus_loc))
+AssertionError: '正常' != '停用'
+- 正常
++ 停用
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt4.59' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_060: 进入修改</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.60' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_061: 修改时工号为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.61' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_062: 修改时工号小于6位</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.62' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_063: 修改时工号非数字/字母</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.63' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_064: 修改时工号已存在</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.64' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_065: 修改时姓名为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.65' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_066: 修改时姓名为符号</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.66' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_067: 修改时固话区号为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.67' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_068: 修改时区号非数字</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.68' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_069: 修改时固话号码为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.69' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_070: 修改时固定号码非数字</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.70' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_071: 修改时固定号码小于6位</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.71' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_072: 修改时分机号非数字</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.72' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_073: 修改时手机号为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.73' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_074: 修改时手机号码不为11位</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.74' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_075: 修改时手机号码非数字</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.75' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_076: 修改时邮箱为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.76' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_077: 修改时邮箱非数字字母符号</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.77' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_078: 修改时非邮箱格式</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.78' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_079: 修改时邮箱已使用</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.79' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_080: 修改时固话/手机区号切换正常</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.80' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_081: 正常修改成功</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.81' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_082: 账号修改前的jobno不能能登入</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.82' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_083: 账号修改后的jobno能登入</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.83' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_084: 删除账号</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.84' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_085: 删除后的账号无法登入</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr class='passClass'>
+    <td>test_createType.Rams_datasys</td>
+    <td>52</td>
+    <td>52</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c5',52)">详情</a></td>
+</tr>
+
+<tr id='pt5.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_001: 进入新增实体</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_002: 实体中文描述为空进行提交</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_003: 英文名为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_004: 英文描述为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_005: 中文名为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_006: 新增时候取消</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.7' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_007: 正常提交实体类型</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.8' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_008: 连续多次提交实体类型申请</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.9' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_009: 新增实体中文名重复</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.10' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_010: 新增实体英文名重复</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.11' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_011: 查看</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.12' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_012: 修改的中文实体名为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.13' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_013: 修改中文描述为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.14' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_014: 修改英文名为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.15' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_015: 修改英文描述为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.16' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_016: 修改已存在的中文名失败</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.17' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_017: 修改已存在的英文名失败</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.18' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_018: 正常修改成功</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.19' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_019: 列表入口修改成功</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.20' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_020: 实体类型搜索搜索		测试数据1515741699</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.21' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_021: 停用加搜索</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.22' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_022: 启用 加搜索</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.23' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_023: 进入新增关联类型页面</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.24' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_024: 操作中文源类型为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.25' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_025: 操作中文关联类型为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.26' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_026: 操作中文目标类型为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.27' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_027: 中文描述为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.28' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_028: 英文关联名为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.29' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_029: 操作英文源为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.30' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_030: 操作英文目标类型为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.31' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_031: 英文描述为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.32' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_032: 新增时取消并重新进入</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.33' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_033: 正常提交注册</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.34' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_034: 连续提交多次申请</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.35' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_035: 新增关联类型名称中文名重复</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.36' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_036: 新增关联类型名称英文名重复</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.37' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_037: 查看关联类型</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.38' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_038: 修改-关联名中文为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.39' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_039: 修改-中文关联名重复</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.40' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_040: 修改-中文描述为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.41' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_041: 修改-英文名为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.42' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_042: 修改-英文名重复</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.43' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_043: 修改-英文描述为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.44' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_044: 正常修改成功</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.45' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_045: 列表修改成功</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.46' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_046: 停用+状态停用搜索</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.47' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_047: 关联类型搜索</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.48' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_048: 源类型搜索</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.49' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_049: 目标类型搜索</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.50' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_050: 正常启用</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.51' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_051: 停用新增关联</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt5.52' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_052: 停用新增实体</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr class='passClass'>
+    <td>test_searchcode.Search_test</td>
+    <td>6</td>
+    <td>6</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c6',6)">详情</a></td>
+</tr>
+
+<tr id='pt6.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_01: 首页输入框输入存在的关键词进行搜索</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt6.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_02: 首页输入存在的中文关键词</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt6.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_03: 输入不存在的编码</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt6.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_04: 搜索结果界面进行搜索</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt6.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_05: 查看详情至返回</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt6.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_06: 输入完整code进行解析</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr class='passClass'>
+    <td>test_spRegister.web_SPRegisterTest: SP账户注册</td>
+    <td>34</td>
+    <td>34</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c7',34)">详情</a></td>
+</tr>
+
+<tr id='pt7.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_001: 机构必填项为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_002: 必填项-机构名称已经存在-注册失败</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_003: 必填项-机构名称长度101-自动截取100长度</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_004: 必填项-统一社会信用代码为19位-自动截取</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_005: 必填项-统一社会信用代码为14位-注册失败</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_006: 必填项-统一社会信用代码含汉字特殊字符-注册失败</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.7' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_007: 官方网址输入错误格式-注册失败</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.8' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_008: 个人用户必填项为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.9' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_009: 个人用户身份证非数字</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.10' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_010: 个人身份证非18位</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.11' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_011: 个人身份证输入非身份证</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.12' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_012: 个人身份证上传格式错误</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.13' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_013: 分支机构必填项为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.14' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_014: 分支机构邮编长度或类型错误</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.15' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_015: 分支机构-网址错误</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.16' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_016: 分支机构联系邮箱格式错误</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.17' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_017: 添加多个分支机构功能正常</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.18' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_018: 必填项-联系人长度26字符-自动截取</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.19' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_019: 必填项-联系人电话-手机号长度12位-自动截取</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.20' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_020: 必填项-联系人电话-手机号含非数字-注册失败</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.21' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_021: 职位长度26位-自动截取</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.22' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_022: 必填项-电子邮箱格式错误-注册失败</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.23' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_023: 邮编输入非数字--注册失败</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.24' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_024: 邮编输入5位数字--注册失败</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.25' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_025: 邮编输入7位数字-自动截取</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.26' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_026: 必填项-用户名格式错误-注册失败</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.27' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_027: 必填项-邮箱验证码格式错误-注册失败</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.28' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_028: 用户名已注册</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.29' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_029: 用户名已提交申请，待审核</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.30' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_030: 必填项-机构LOGO格式错误-注册失败</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.31' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_031: 必填项-机构扫描件格式错误-注册失败</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.32' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_032: 机构用户正常填写注册信息</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.33' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_033: 个人用户正常注册</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.34' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_034: 机构用户添加分支机构</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr class='passClass'>
+    <td>test_webManager.newsManagerTest: 网站管理</td>
+    <td>29</td>
+    <td>29</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c8',29)">详情</a></td>
+</tr>
+
+<tr id='pt8.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_01: 发布新闻-必填项为空-发布失败</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_02: 发布新闻-标题输入超过100字符-自动截取100</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_04: 发布新闻-来源输入超过100字符-自动截取100</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_05: 发布新闻-排序输入格式错误-报错提示</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_06: 发布新闻-摘要输入超过200字符-自动截取200</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_07: 发布新闻-内容超过30000字符-自动截取30000</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.7' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_08: 流程-发布新闻并检查其正确性</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.8' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_09: 新增栏目-输入已经存在的导航名称-报错提示</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.9' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_10: 新增栏目-必填项为空-报错提示-新增失败</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.10' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_11: 新增栏目-导航名称输入41字符-自动截取40</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.11' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_12: 新增栏目-导航名称输入最短字符-1</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.12' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_13: 新增栏目-导航描述输入101字符-自动截取100</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.13' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_14: 新增栏目-各项输入最长字符-成功新增</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.14' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_15: 新增栏目-各项输入最短字符-成功新增</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.15' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_16: 修改栏目-导航名称已存在</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.16' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_17: 修改栏目-必填项为空</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.17' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_18: 修改栏目-导航名称输入41字符-自动截取40</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.18' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_19: 修改栏目-导航名称输入最短字符-1</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.19' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_20: 修改栏目-导航描述输入101字符-自动截取100</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.20' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_21: 客户反馈-处理反馈时不填处理结果-报错提示</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.21' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_22: 客户反馈-处理反馈输入内容后点击关闭</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.22' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_23: 客户反馈-处理反馈输入201字符-自动截取200-成功提交</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.23' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_25: 客户反馈-主题输入框文字提示</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.24' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_26: 客户反馈-根据搜索条件检查结果列表</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.25' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_27: 输入页码为范围内的页码-成功跳转</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.26' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_28: 输入页码小于1-跳转到第一页</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.27' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_29: 输入页码大于最大页码-跳转到最大页码</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.28' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_30: 输入页码为字母-跳转到第一页</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.29' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_31: 输入页码为特殊字符-跳转到第一页</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='total_row'>
+    <td>总计</td>
+    <td>318</td>
+    <td>317</td>
+    <td>1</td>
+    <td>0</td>
+    <td>&nbsp;</td>
+</tr>
+</table>
+
+<div id='ending'>&nbsp;</div>
+
+</div>
+</body>
+</html>
